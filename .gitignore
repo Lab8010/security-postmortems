@@ -1,0 +1,14 @@
+# ローカル専用（GitHub には push しない）
+CLAUDE.md
+CONTRIBUTING.md
+templates/
+.claude/
+
+# ビルド・OS 生成物
+_site/
+.jekyll-cache/
+.sass-cache/
+vendor/
+.bundle/
+Gemfile.lock
+.DS_Store
