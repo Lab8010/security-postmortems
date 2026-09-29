@@ -168,7 +168,8 @@
   fetch("data/incidents.json")
     .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
     .then(function (data) {
-      var list = data.incidents.slice().sort(function (a, b) { return a.date < b.date ? -1 : 1; });
+      // 新しい順（上が最新）
+      var list = data.incidents.slice().sort(function (a, b) { return a.date < b.date ? 1 : -1; });
       document.getElementById("meta").textContent =
         "掲載事例 " + list.length + "件 ／ 最終更新 " + data.updated;
       renderAmount(list);
