@@ -26,14 +26,16 @@
 ```
 .
 ├── README.md                    # このファイル（事例一覧）
-├── CONTRIBUTING.md              # 情報源の扱い・執筆ルール
-├── templates/
-│   └── incident-template.md     # 事例ページのひな形
+├── index.html                   # Webサイトのトップページ（GitHub Pages）
+├── data/
+│   └── incidents.json           # トップページのグラフ・時系列の元データ
 ├── incidents/
 │   └── YYYY-MM_<企業名>/         # 発生年月（攻撃の検知・公表月）＋企業名
 │       └── README.md
-└── lessons/
-    └── cross-case-analysis.md   # 事例横断の分析
+├── lessons/
+│   └── cross-case-analysis.md   # 事例横断の分析
+├── assets/                      # サイトのCSS・JavaScript
+└── _layouts/, _config.yml       # 詳細ページ用の Jekyll 設定
 ```
 
 ## 情報源の方針（要約）
@@ -41,8 +43,6 @@
 1. **企業の公式発表（プレスリリース、報告書PDF、決算資料）を最優先**の情報源とし、可能な限りリンクします。公的機関（個人情報保護委員会、総務省、国土交通省など）の公表資料も一次情報として扱います。リンク切れに備え、Web Archive のURLを併記します。
 2. 公式に書かれていない情報（攻撃グループ名、報道された会見内容など）は **「報道ベース」** と明記して区別します。
 3. 本リポジトリ独自の分析・教訓は **「分析」** として公式情報と分けて記載します。
-
-詳細は [CONTRIBUTING.md](CONTRIBUTING.md) を参照してください。
 
 ## 免責
 

@@ -1,0 +1,32 @@
+title: 国内セキュリティ侵害アーカイブ
+description: 日本国内で注目を集めたセキュリティ侵害を、公式発表をもとに原因と再発防止策まで整理したアーカイブ。
+lang: ja
+baseurl: "/security-postmortems"
+url: "https://lab8010.github.io"
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+
+# GitHub Pages 標準プラグイン（Markdown の .md リンクを .html に変換、README.md をフォルダの index にする 等）
+plugins:
+  - jekyll-relative-links
+  - jekyll-optional-front-matter
+  - jekyll-readme-index
+  - jekyll-titles-from-headings
+  - jekyll-default-layout
+
+relative_links:
+  enabled: true
+  collections: false
+
+titles_from_headings:
+  strip_title: false
+
+exclude:
+  - CLAUDE.md
+  - templates/
+  - Gemfile
+  - Gemfile.lock
+  - vendor/

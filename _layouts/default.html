@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="{{ site.lang | default: 'ja' }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+  <meta name="description" content="{{ page.description | default: site.description }}">
+  <link rel="stylesheet" href="{{ '/assets/site.css' | relative_url }}">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+      <nav class="site-nav" aria-label="サイト内">
+        <a href="{{ '/#timeline' | relative_url }}">事例一覧</a>
+        <a href="{{ '/lessons/cross-case-analysis.html' | relative_url }}">横断分析</a>
+        <a href="https://github.com/Lab8010/security-postmortems/blob/main/{{ page.path }}">GitHubで見る</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <article class="doc">
+      {{ content }}
+      <a class="back" href="{{ '/#timeline' | relative_url }}">← 事例一覧に戻る</a>
+    </article>
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      数値は各社・公的機関の発表を優先し、報道由来の値はその旨を明記しています。
+    </div>
+  </footer>
+</body>
+</html>
