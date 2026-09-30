@@ -103,13 +103,22 @@
   }
 
   function renderRecords(list) {
-    var sorted = list.slice().sort(function (a, b) { return b.records - a.records; });
-    var max = sorted[0].records;
+    // records が null（未公表・調査中）と 0（漏えいなし）を区別し、
+    // 数値のある事例だけを大きい順に、null は末尾にまとめる。
+    var known = list.filter(function (i) { return i.records != null; })
+      .sort(function (a, b) { return b.records - a.records; });
+    var unknown = list.filter(function (i) { return i.records == null; });
+    var max = known.length ? known[0].records : 1;
     var ul = document.getElementById("chart-records");
-    sorted.forEach(function (inc) {
+    known.forEach(function (inc) {
       var text = inc.records ? formatRecords(inc.records) : "なし";
       var li = barRow(inc, inc.records, max, "records", text, inc.org, [inc.records_note]);
       if (!inc.records) li.querySelector(".bar-value").classList.add("none");
+      ul.appendChild(li);
+    });
+    unknown.forEach(function (inc) {
+      var li = barRow(inc, 0, max, "records", "調査中", inc.org, [inc.records_note]);
+      li.querySelector(".bar-value").classList.add("none");
       ul.appendChild(li);
     });
   }
