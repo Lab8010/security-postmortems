@@ -123,6 +123,44 @@
     });
   }
 
+  /* ---------- Cause ranking ---------- */
+  // 1つの事例が複数の原因タグを持ちうるため、バーはリンクではなく
+  // <details> で開閉し、該当する事例へのリンクを中に並べる。
+  function renderCauses(list, causeLabels) {
+    var counts = {}; // id -> { label, count, incidents: [] }
+    list.forEach(function (inc) {
+      (inc.causes || []).forEach(function (id) {
+        if (!counts[id]) counts[id] = { id: id, label: causeLabels[id] || id, count: 0, incidents: [] };
+        counts[id].count += 1;
+        counts[id].incidents.push(inc);
+      });
+    });
+    var rows = Object.keys(counts).map(function (k) { return counts[k]; })
+      .sort(function (a, b) { return b.count - a.count; });
+    var max = rows.length ? rows[0].count : 1;
+    var ul = document.getElementById("chart-causes");
+    rows.forEach(function (row) {
+      var frac = row.count / max;
+      var width = "calc((100% - " + LABEL_RESERVE + ") * " + frac.toFixed(4) + ")";
+      var track = el("span", { class: "bar-track" }, [
+        el("span", { class: "bar causes", style: "width:" + width }),
+        el("span", { class: "bar-value", style: "left:calc(" + width + " + 6px)", text: row.count + "件" })
+      ]);
+      var summary = el("summary", { class: "bar-row" }, [
+        el("span", { class: "bar-label", text: row.label }),
+        track
+      ]);
+      var orgList = el("ul", { class: "cause-orgs" }, row.incidents.map(function (inc) {
+        return el("li", {}, [el("a", { href: detailUrl(inc) }, [
+          inc.org, el("span", { class: "cause-orgs-date", text: "（" + inc.date.slice(0, 7).replace("-", "年") + "月）" })
+        ])]);
+      }));
+      var details = el("details", { class: "cause-item" }, [summary, orgList]);
+      bindTip(summary, row.label, [row.count + "件が該当。クリックすると事例を一覧できます。"]);
+      ul.appendChild(el("li", {}, [details]));
+    });
+  }
+
   function renderTable(list) {
     var tbody = document.querySelector("#data-table tbody");
     list.forEach(function (inc) {
@@ -181,8 +219,10 @@
       var list = data.incidents.slice().sort(function (a, b) { return a.date < b.date ? 1 : -1; });
       document.getElementById("meta").textContent =
         "掲載事例 " + list.length + "件 ／ 最終更新 " + data.updated;
+      document.getElementById("causes-total-incidents").textContent = list.length;
       renderAmount(list);
       renderRecords(list);
+      renderCauses(list, data.cause_labels || {});
       renderTable(list);
       renderTimeline(list);
     })

@@ -13,6 +13,7 @@
       <a class="brand" href="./">国内セキュリティ侵害アーカイブ</a>
       <nav class="site-nav" aria-label="サイト内">
         <a href="#impact">影響の大きさ</a>
+        <a href="#causes">原因ランキング</a>
         <a href="#timeline">時系列</a>
         <a href="lessons/cross-case-analysis.html">横断分析</a>
         <a href="https://github.com/Lab8010/security-postmortems">GitHub</a>
@@ -59,6 +60,17 @@
           </table>
         </div>
       </details>
+    </section>
+
+    <section id="causes" aria-labelledby="causes-title">
+      <h2 class="section-title" id="causes-title">原因ランキング</h2>
+      <p class="section-lead">各事例の「原因」章を、本リポジトリが分類したものです。1件の事例が複数の原因に当てはまることがあるため、合計は掲載事例数より多くなります。バーをクリックすると、該当する事例が開きます。</p>
+      <div class="card" style="margin:0">
+        <h3 class="chart-title">原因タグの登場回数</h3>
+        <p class="chart-sub">全<span id="causes-total-incidents"></span>事例のうち、そのタグが該当した事例数</p>
+        <ul class="bars" id="chart-causes"></ul>
+        <p class="chart-foot">「原因非公表」は、2026-09-30時点で公式に原因が公表されていない事例です。今後の続報で他のタグに変わる可能性があります。</p>
+      </div>
     </section>
 
     <section id="timeline" aria-labelledby="timeline-title">

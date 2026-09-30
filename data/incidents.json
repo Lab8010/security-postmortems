@@ -2,7 +2,20 @@
   "updated": "2026-09-30",
   "notes": {
     "amount": "損益への影響額（億円）。会社が攻撃の影響として示した営業利益（事業利益）への影響と特別損失の合計。basis が reported のものは報道ベースの値。",
-    "records": "個人情報の対象件数（漏えい確認＋漏えいのおそれの最新値）。KDDI はメールアドレスの漏えい人数。"
+    "records": "個人情報の対象件数（漏えい確認＋漏えいのおそれの最新値）。KDDI はメールアドレスの漏えい人数。",
+    "causes": "各事例ページの「原因」章から本リポジトリが分類したタグ（複数可）。1件の事例が複数のタグを持つことがある。cause_labels にタグの日本語名を定義。"
+  },
+  "cause_labels": {
+    "ransomware": "ランサムウェア",
+    "vpn": "VPN・ネットワーク機器の脆弱性",
+    "password": "パスワード管理の不備",
+    "mfa": "多要素認証（MFA）の未導入・例外",
+    "access_control": "権限・アクセス制御の不備",
+    "vendor": "委託先・サプライチェーン経由",
+    "cloud": "クラウドアカウントの管理不備",
+    "phishing": "フィッシング等によるアカウント窃取",
+    "zeroday": "ゼロデイ脆弱性",
+    "undisclosed": "原因非公表"
   },
   "incidents": [
     {
@@ -18,7 +31,8 @@
       "records": 0,
       "records_note": "漏えいの形跡なし",
       "downtime": "約2日半",
-      "status": "完了"
+      "status": "完了",
+      "causes": ["ransomware", "vpn"]
     },
     {
       "id": "2024-05_iseto",
@@ -33,7 +47,8 @@
       "records": 3076477,
       "records_note": "漏えい 3,076,477人",
       "downtime": "限定的",
-      "status": "完了（個人情報保護委員会が指導）"
+      "status": "完了（個人情報保護委員会が指導）",
+      "causes": ["ransomware", "vpn", "password", "mfa"]
     },
     {
       "id": "2026-02_anabuki-housing",
@@ -48,7 +63,8 @@
       "records": 207773,
       "records_note": "漏えい確定 207,773件",
       "downtime": "業務の一部に遅延（営業は継続）",
-      "status": "完了"
+      "status": "完了",
+      "causes": ["ransomware", "vpn"]
     },
     {
       "id": "2026-02_hosokawa-micron",
@@ -63,7 +79,8 @@
       "records": 1728,
       "records_note": "漏えい確認 約1,728件（マイナンバー1件を含む）",
       "downtime": "業務停止なし（影響は軽微）",
-      "status": "完了"
+      "status": "完了",
+      "causes": ["password", "cloud"]
     },
     {
       "id": "2024-06_kadokawa",
@@ -79,7 +96,8 @@
       "records": 254241,
       "records_note": "漏えい確認 254,241人",
       "downtime": "ニコニコ約2か月",
-      "status": "復旧済み"
+      "status": "復旧済み",
+      "causes": ["ransomware", "phishing"]
     },
     {
       "id": "2025-09_asahi-group",
@@ -95,7 +113,8 @@
       "records": 2289000,
       "records_note": "漏えいのおそれ 約228.9万件",
       "downtime": "受注システム約2か月",
-      "status": "再発防止策公表済み"
+      "status": "再発防止策公表済み",
+      "causes": ["ransomware", "vpn", "password"]
     },
     {
       "id": "2025-10_askul",
@@ -111,7 +130,8 @@
       "records": 1339700,
       "records_note": "流出確認 約74万件＋漏えいのおそれ 約60万件",
       "downtime": "全物流センターの出荷再開まで約3.5か月",
-      "status": "再発防止策公表済み"
+      "status": "再発防止策公表済み",
+      "causes": ["ransomware", "mfa", "vendor"]
     },
     {
       "id": "2026-06_aflac",
@@ -126,7 +146,8 @@
       "records": 4400000,
       "records_note": "漏えい 約440万人",
       "downtime": "契約者向けサイト停止（再開時期未定）",
-      "status": "再発防止策公表済み"
+      "status": "再発防止策公表済み",
+      "causes": ["access_control"]
     },
     {
       "id": "2026-06_kddi-isp-mail",
@@ -141,7 +162,8 @@
       "records": 12231954,
       "records_note": "メールアドレス 12,231,954人（うちパスワード 7,616,173人）",
       "downtime": "ISP各社でパスワードを強制変更",
-      "status": "行政指導・報告継続中"
+      "status": "行政指導・報告継続中",
+      "causes": ["zeroday", "password"]
     },
     {
       "id": "2026-08_sakura-internet",
@@ -156,7 +178,8 @@
       "records": 1360563,
       "records_note": "影響の可能性 1,360,563アカウント（うち30件はパスワード情報も）",
       "downtime": "サービス停止なし（個別対応で継続）",
-      "status": "完了"
+      "status": "完了",
+      "causes": ["undisclosed"]
     },
     {
       "id": "2026-08_rext-holdings",
@@ -171,7 +194,8 @@
       "records": null,
       "records_note": "漏えいのおそれを調査中（D&M事案は633件）",
       "downtime": "全店舗の営業再開まで約1週間",
-      "status": "調査継続中"
+      "status": "調査継続中",
+      "causes": ["ransomware", "vpn", "undisclosed"]
     },
     {
       "id": "2026-09_park24-timescar",
@@ -186,7 +210,8 @@
       "records": 6600000,
       "records_note": "漏えいのおそれ 最大約660万件（うち本人確認書類の流出 約160万件）",
       "downtime": "検知から約22時間で通信を遮断",
-      "status": "調査継続中"
+      "status": "調査継続中",
+      "causes": ["undisclosed"]
     },
     {
       "id": "2026-07_nichirei",
@@ -202,7 +227,8 @@
       "records": 53866,
       "records_note": "漏えい確認 53,866件",
       "downtime": "11日",
-      "status": "調査継続中"
+      "status": "調査継続中",
+      "causes": ["undisclosed"]
     }
   ]
 }

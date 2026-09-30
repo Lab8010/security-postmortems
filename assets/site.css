@@ -132,6 +132,7 @@ h2.section-title { font-size: 22px; margin: 0 0 4px; }
 .bar.official { background: var(--series-official); }
 .bar.reported { background: var(--series-reported); }
 .bar.records { background: var(--series-records); }
+.bar.causes { background: var(--series-official); }
 .bar-value {
   position: absolute; top: 50%; transform: translateY(-50%);
   font-size: 13px; font-weight: 600; color: var(--ink);
@@ -139,6 +140,35 @@ h2.section-title { font-size: 22px; margin: 0 0 4px; }
 }
 .bar-value.none { color: var(--muted); font-weight: 400; }
 .chart-foot { margin: 12px 0 0; font-size: 12.5px; color: var(--muted); line-height: 1.6; }
+
+/* ===== Cause ranking (expandable bars) ===== */
+.cause-item { border-radius: 6px; }
+.cause-item > summary.bar-row {
+  cursor: pointer;
+  list-style: none;
+  grid-template-columns: minmax(9em, 13em) 1fr auto;
+}
+.cause-item > summary.bar-row::-webkit-details-marker { display: none; }
+.cause-item > summary.bar-row::after {
+  content: "";
+  width: 8px; height: 8px;
+  border-right: 2px solid var(--muted);
+  border-bottom: 2px solid var(--muted);
+  transform: rotate(-45deg);
+  transition: transform 0.15s;
+  margin-left: 4px;
+}
+.cause-item[open] > summary.bar-row::after { transform: rotate(45deg); }
+.cause-orgs {
+  list-style: none;
+  margin: 2px 0 10px;
+  padding: 8px 10px 8px calc(9em + 10px);
+  display: flex; flex-wrap: wrap; gap: 6px 16px;
+}
+@media (max-width: 480px) { .cause-orgs { padding-left: 10px; } }
+.cause-orgs a { font-size: 13px; text-decoration: none; }
+.cause-orgs a:hover { text-decoration: underline; }
+.cause-orgs-date { color: var(--muted); font-size: 12px; }
 
 details.table-view { margin-top: 16px; }
 details.table-view summary { cursor: pointer; font-size: 14px; color: var(--accent); }
