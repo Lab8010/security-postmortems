@@ -3,19 +3,18 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>国内セキュリティ侵害アーカイブ</title>
-  <meta name="description" content="日本国内で注目を集めたセキュリティ侵害を、公式発表をもとに原因と再発防止策まで整理したアーカイブ。">
+  <title>セキュリティ影響ずかん</title>
+  <meta name="description" content="セキュリティ侵害が起きると組織にどんな影響が及ぶのかを、企業名を挙げずにパターンとしてまとめた早見図鑑。気になる影響から、対応する対策へ進めます。">
   <link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
   <header class="site-header">
     <div class="wrap">
-      <a class="brand" href="./">国内セキュリティ侵害アーカイブ</a>
+      <a class="brand" href="index.html">セキュリティ影響ずかん</a>
       <nav class="site-nav" aria-label="サイト内">
-        <a href="#impact">影響の大きさ</a>
-        <a href="#causes">原因ランキング</a>
-        <a href="#timeline">時系列</a>
-        <a href="zukan.html">セキュリティずかん</a>
+        <a href="index.html"><strong>影響ずかん（ホーム）</strong></a>
+        <a href="zukan.html">対策ずかん</a>
+        <a href="appendix.html">付録：事例集</a>
         <a href="lessons/cross-case-analysis.html">横断分析</a>
         <a href="https://github.com/Lab8010/security-postmortems">GitHub</a>
       </nav>
@@ -24,76 +23,288 @@
 
   <main class="wrap">
     <div class="hero">
-      <h1>他社の事例から学び、備える</h1>
-      <p>日本国内で注目を集めたセキュリティ侵害を、各社の公式発表をもとに「何が起き、なぜ起き、どう立て直したか」まで整理しています。事例をクリックすると、経緯・原因・再発防止策・一次情報のリンクを読めます。</p>
-      <p class="meta" id="meta"></p>
+      <h1>セキュリティ影響ずかん</h1>
+      <p>セキュリティの侵害が起きると、組織には具体的にどんな影響が及ぶのか。IT部門でなくても、経営や事業の意思決定に関わるすべての方に知っておいてほしいパターンを、特定の企業名を挙げずにまとめました。「ああ、こうなったら困るな」と思う影響が見つかったら、カードの先にある<strong>対応する対策</strong>に進んでみてください。</p>
+      <p class="meta">このページは、国内で実際に起きた複数の事例を一般化したものです。企業名を含む具体的な経緯は、<a href="appendix.html">付録の事例集</a>で読めます。</p>
     </div>
 
-    <noscript><p class="noscript">グラフとタイムラインの表示には JavaScript が必要です。<a href="https://github.com/Lab8010/security-postmortems">GitHub のリポジトリ</a>から各事例を読むこともできます。</p></noscript>
+    <nav aria-label="カテゴリ">
+      <ul class="zukan-legend">
+        <li><a href="#imp-1"><span class="dot" style="background:var(--cat-1)"></span>事業が止まる</a></li>
+        <li><a href="#imp-2"><span class="dot" style="background:var(--cat-2)"></span>お金が出ていく</a></li>
+        <li><a href="#imp-3"><span class="dot" style="background:var(--cat-3)"></span>情報が漏れて謝罪に追われる</a></li>
+        <li><a href="#imp-4"><span class="dot" style="background:var(--cat-4)"></span>信用・責任を問われる</a></li>
+        <li><a href="#imp-5"><span class="dot" style="background:var(--cat-5)"></span>気づかないまま広がる</a></li>
+      </ul>
+    </nav>
 
-    <section id="impact" aria-labelledby="impact-title">
-      <h2 class="section-title" id="impact-title">影響の大きさ</h2>
-      <p class="section-lead">バーにカーソルを合わせると内訳が、クリックすると詳細ページが開きます。</p>
-      <div class="charts">
-        <figure class="card" style="margin:0">
-          <h3 class="chart-title">損益への影響額</h3>
-          <p class="chart-sub">会社が攻撃の影響として示した、営業利益（事業利益）への影響と特別損失の合計（億円）</p>
-          <ul class="legend">
-            <li><span class="swatch official" aria-hidden="true"></span>公式発表の値</li>
-            <li><span class="swatch reported" aria-hidden="true"></span>報道ベースの値</li>
-          </ul>
-          <ul class="bars" id="chart-amount"></ul>
-          <p class="chart-foot" id="amount-foot"></p>
-        </figure>
-        <figure class="card" style="margin:0">
-          <h3 class="chart-title">個人情報の対象件数</h3>
-          <p class="chart-sub">漏えいを確認した件数と「漏えいのおそれ」の合計（最新の公式値）</p>
-          <ul class="bars" id="chart-records"></ul>
-          <p class="chart-foot">KDDI はメールアドレスが漏えいした人数（うちパスワードは約762万人）。名古屋港は漏えいの形跡なし。</p>
-        </figure>
+    <!-- ============ I. 事業が止まる ============ -->
+    <section id="imp-1" class="zukan-section" style="--card-accent:var(--cat-1)">
+      <div class="zukan-cat-head">
+        <span class="zukan-cat-icon" style="background:var(--cat-1)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M3 12h18M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2"/></svg>
+        </span>
+        <h2 class="zukan-cat-title">事業が止まる — 現場・顧客対応への影響</h2>
       </div>
-      <details class="table-view">
-        <summary>表で見る</summary>
-        <div class="table-scroll">
-          <table class="data" id="data-table">
-            <thead><tr><th>発生</th><th>組織</th><th>種別</th><th>影響額（億円）</th><th>個人情報</th><th>停止・影響期間</th></tr></thead>
-            <tbody></tbody>
-          </table>
-        </div>
-      </details>
+      <p class="zukan-cat-lead">システムが使えなくなると、まず止まるのが「いつもの業務」です。受注、出荷、窓口対応、決算発表など、日々当たり前に動いているものほど影響が大きくなります。</p>
+      <div class="zukan-grid">
+
+        <article class="zukan-card">
+          <div class="zukan-card-head">
+            <span class="zukan-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10l2-6h14l2 6M5 10h14v9a1 1 0 01-1 1H6a1 1 0 01-1-1v-9z"/><path d="M9 14h6"/></svg></span>
+            <h3>受注・出荷が止まり、商品が店頭やお客様に届かなくなる</h3>
+          </div>
+          <p class="zukan-summary">受注システムや倉庫の管理システムが止まり、通常の物流が回らなくなる。</p>
+          <dl class="zukan-facts">
+            <div><dt>規模感</dt><dd>数週間〜数か月にわたり、取扱商品の1〜2割が店頭から欠ける規模になることもある</dd></div>
+            <div><dt>きっかけ</dt><dd>境界機器（VPN等）からの侵入、ランサムウェアによるシステムの暗号化</dd></div>
+            <div><dt>経営としての意味</dt><dd>売上の落ち込みだけでなく、復旧までの人件費・手作業対応コストが積み上がる</dd></div>
+          </dl>
+          <a class="zukan-action" href="zukan.html#cat-1">対応する対策を見る（ネットワーク・境界）<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </article>
+
+        <article class="zukan-card">
+          <div class="zukan-card-head">
+            <span class="zukan-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a1 1 0 011-1h3l2 5-2.5 1.5a11 11 0 005 5L14 13l5 2v3a1 1 0 01-1 1C9.5 19 4 13.5 4 5z"/></svg></span>
+            <h3>窓口・現場のサービスが止まる（配車、来店予約、診療など）</h3>
+          </div>
+          <p class="zukan-summary">電話・Web受付、予約システムなど、顧客と直接つながる機能が使えなくなる。</p>
+          <dl class="zukan-facts">
+            <div><dt>規模感</dt><dd>数日〜半年以上、一部の機能が止まったままになることもある</dd></div>
+            <div><dt>きっかけ</dt><dd>リモートアクセス機器の脆弱性、社内システムのマルウェア感染</dd></div>
+            <div><dt>経営としての意味</dt><dd>その場でサービスを受けられない顧客が離れ、ブランドの印象が傷つく</dd></div>
+          </dl>
+          <a class="zukan-action" href="zukan.html#cat-3">対応する対策を見る（エンドポイント）<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </article>
+
+        <article class="zukan-card">
+          <div class="zukan-card-head">
+            <span class="zukan-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 13l2.5 2.5L16 10"/></svg></span>
+            <h3>決算発表やIR対応が遅れる</h3>
+          </div>
+          <p class="zukan-summary">経理データにアクセスできず、決算の数値を確定できなくなる。</p>
+          <dl class="zukan-facts">
+            <div><dt>規模感</dt><dd>数週間〜5か月程度、決算発表が遅れた例がある</dd></div>
+            <div><dt>きっかけ</dt><dd>基幹システムの停止、経理システムへの被害の波及</dd></div>
+            <div><dt>経営としての意味</dt><dd>株主・投資家への説明責任が問われ、信用に直結する</dd></div>
+          </dl>
+          <a class="zukan-action" href="zukan.html#cat-7">対応する対策を見る（組織・運用）<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </article>
+
+      </div>
     </section>
 
-    <section id="causes" aria-labelledby="causes-title">
-      <h2 class="section-title" id="causes-title">原因ランキング</h2>
-      <p class="section-lead">各事例の「原因」章を、本リポジトリが分類したものです。1件の事例が複数の原因に当てはまることがあるため、合計は掲載事例数より多くなります。バーをクリックすると、該当する事例が開きます。</p>
-      <div class="card" style="margin:0">
-        <h3 class="chart-title">原因タグの登場回数</h3>
-        <p class="chart-sub">全<span id="causes-total-incidents"></span>事例のうち、そのタグが該当した事例数</p>
-        <ul class="bars" id="chart-causes"></ul>
-        <p class="chart-foot">「原因非公表」は、2026-09-30時点で公式に原因が公表されていない事例です。今後の続報で他のタグに変わる可能性があります。</p>
+    <!-- ============ II. お金が出ていく ============ -->
+    <section id="imp-2" class="zukan-section" style="--card-accent:var(--cat-2)">
+      <div class="zukan-cat-head">
+        <span class="zukan-cat-icon" style="background:var(--cat-2)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9.5 9.5c0-1.2 1.1-2 2.5-2s2.5.7 2.5 1.8-1 1.7-2.5 2-2.5.9-2.5 2 1.1 1.8 2.5 1.8 2.5-.8 2.5-2"/></svg>
+        </span>
+        <h2 class="zukan-cat-title">お金が出ていく — 財務・経営責任への影響</h2>
+      </div>
+      <p class="zukan-cat-lead">侵害そのものだけでなく、復旧・対応・説明にかかる費用が重なります。金額として見えることで、初めて経営課題として実感されることも多い領域です。</p>
+      <div class="zukan-grid">
+
+        <article class="zukan-card">
+          <div class="zukan-card-head">
+            <span class="zukan-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 18l5-6 4 3 7-9"/><path d="M15 6h5v5"/></svg></span>
+            <h3>対応費用・損失が数十億円規模になる</h3>
+          </div>
+          <p class="zukan-summary">システム復旧、原因調査、コールセンター設置、機会損失などの費用が積み重なる。</p>
+          <dl class="zukan-facts">
+            <div><dt>規模感</dt><dd>数十億円〜数百億円規模の特別損失・減益になった例がある</dd></div>
+            <div><dt>きっかけ</dt><dd>被害範囲の大きさ、復旧の長期化</dd></div>
+            <div><dt>経営としての意味</dt><dd>一度のインシデントが、年間の利益計画を狂わせるほどの財務インパクトになりうる</dd></div>
+          </dl>
+          <a class="zukan-action" href="zukan.html#cat-5">対応する対策を見る（データ保護）<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </article>
+
+        <article class="zukan-card">
+          <div class="zukan-card-head">
+            <span class="zukan-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="9" width="16" height="11" rx="2"/><path d="M8 9V6a4 4 0 118 0v3"/><path d="M12 13v3"/></svg></span>
+            <h3>身代金を要求され、支払うかどうかの判断を迫られる</h3>
+          </div>
+          <p class="zukan-summary">攻撃者からデータの復号や非公開と引き換えに金銭を要求される。</p>
+          <dl class="zukan-facts">
+            <div><dt>規模感</dt><dd>支払いの有無にかかわらず、復旧や調査には相応の時間と費用がかかる</dd></div>
+            <div><dt>きっかけ</dt><dd>ランサムウェアによる暗号化・データ窃取</dd></div>
+            <div><dt>経営としての意味</dt><dd>支払わない方針を平時に決めておかないと、有事に経営判断が混乱する</dd></div>
+          </dl>
+          <a class="zukan-action" href="zukan.html#cat-5">対応する対策を見る（データ保護）<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </article>
+
+        <article class="zukan-card">
+          <div class="zukan-card-head">
+            <span class="zukan-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 18V9m5 9V6m5 12v-7m5 7V4"/></svg></span>
+            <h3>株価が下落し、株主への説明責任が生じる</h3>
+          </div>
+          <p class="zukan-summary">漏えい公表後に株価が下がり、株主総会などで説明が求められる。</p>
+          <dl class="zukan-facts">
+            <div><dt>規模感</dt><dd>公表直後に数%程度の急落が起きる例がある（一時的な下落にとどまることも）</dd></div>
+            <div><dt>きっかけ</dt><dd>大規模な個人情報漏えいの公表</dd></div>
+            <div><dt>経営としての意味</dt><dd>経営者自身の説明責任・信任に直結する</dd></div>
+          </dl>
+          <a class="zukan-action" href="zukan.html#cat-7">対応する対策を見る（組織・運用）<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </article>
+
       </div>
     </section>
 
-    <section id="timeline" aria-labelledby="timeline-title">
-      <h2 class="section-title" id="timeline-title">時系列</h2>
-      <p class="section-lead">新しい順に並べています（上が最新）。カードをクリックすると詳細ページに移動します。</p>
-      <ol class="timeline" id="timeline-list"></ol>
+    <!-- ============ III. 情報が漏れて謝罪に追われる ============ -->
+    <section id="imp-3" class="zukan-section" style="--card-accent:var(--cat-3)">
+      <div class="zukan-cat-head">
+        <span class="zukan-cat-icon" style="background:var(--cat-3)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.5-7-10a7 7 0 0114 0c0 5.5-7 10-7 10z"/><circle cx="12" cy="11" r="2.4"/></svg>
+        </span>
+        <h2 class="zukan-cat-title">情報が漏れて、謝罪・対応に追われる</h2>
+      </div>
+      <p class="zukan-cat-lead">個人情報の漏えいは、自社の落ち度だけでなく、取引先・委託先を経由して起きることもあります。対応は一度の公表で終わらないことも多い領域です。</p>
+      <div class="zukan-grid">
+
+        <article class="zukan-card">
+          <div class="zukan-card-head">
+            <span class="zukan-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 20c.6-3.4 2.6-5.3 6-5.3s5.4 1.9 6 5.3"/><path d="M19 8h2M20 7v2"/></svg></span>
+            <h3>顧客の個人情報が大量に漏れ、個別通知とコールセンター対応に追われる</h3>
+          </div>
+          <p class="zukan-summary">氏名・連絡先などが漏れ、対象者への通知や問い合わせ窓口の設置が必要になる。</p>
+          <dl class="zukan-facts">
+            <div><dt>規模感</dt><dd>数万件〜1,000万件を超える規模になることもある</dd></div>
+            <div><dt>きっかけ</dt><dd>認証・アクセス制御の不備、委託先経由の侵害</dd></div>
+            <div><dt>経営としての意味</dt><dd>対応が長期化し、広報・コールセンター・法務が同時に動員される</dd></div>
+          </dl>
+          <a class="zukan-action" href="zukan.html#cat-2">対応する対策を見る（認証・ID）<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </article>
+
+        <article class="zukan-card">
+          <div class="zukan-card-head">
+            <span class="zukan-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2.6"/><circle cx="18" cy="6" r="2.6"/><circle cx="12" cy="18" r="2.6"/><path d="M8 7.5L10.3 16M16 7.5L13.7 16M8.5 6h7"/></svg></span>
+            <h3>取引先・委託先経由で、気づかないうちに自社の情報が漏れる</h3>
+          </div>
+          <p class="zukan-summary">自社が直接攻撃を受けていなくても、委託先が被害に遭い、預けていた情報が漏れる。</p>
+          <dl class="zukan-facts">
+            <div><dt>規模感</dt><dd>1社の被害が、数十〜100以上の取引先・委託元に波及することがある</dd></div>
+            <div><dt>きっかけ</dt><dd>委託先側のセキュリティ管理不足</dd></div>
+            <div><dt>経営としての意味</dt><dd>「委託しているから自社は安全」とは言えない、サプライチェーン全体の責任</dd></div>
+          </dl>
+          <a class="zukan-action" href="zukan.html#cat-5">対応する対策を見る（データ保護）<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </article>
+
+        <article class="zukan-card">
+          <div class="zukan-card-head">
+            <span class="zukan-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.3-4.3"/><path d="M9 11h4"/></svg></span>
+            <h3>漏れた情報がダークウェブで公開され、不安が長期化する</h3>
+          </div>
+          <p class="zukan-summary">攻撃者が情報を公開サイトに掲載し、悪用への不安が続く。</p>
+          <dl class="zukan-facts">
+            <div><dt>規模感</dt><dd>公開から発覚まで時間差があり、後から追加の被害が判明することもある</dd></div>
+            <div><dt>きっかけ</dt><dd>二重恐喝型のランサムウェア（暗号化に加えて情報を公開する手口）</dd></div>
+            <div><dt>経営としての意味</dt><dd>一度の公表で終わらず、追加の通知・対応が繰り返し必要になる</dd></div>
+          </dl>
+          <a class="zukan-action" href="zukan.html#cat-4">対応する対策を見る（監視・検知）<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ============ IV. 信用・責任を問われる ============ -->
+    <section id="imp-4" class="zukan-section" style="--card-accent:var(--cat-4)">
+      <div class="zukan-cat-head">
+        <span class="zukan-cat-icon" style="background:var(--cat-4)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7l8-4z"/><path d="M9.5 12l2 2 3-3.5"/></svg>
+        </span>
+        <h2 class="zukan-cat-title">社会的な信用・経営責任を問われる</h2>
+      </div>
+      <p class="zukan-cat-lead">侵害そのものの大きさだけでなく、「その後どう対応したか」が、規制当局や社会からの評価につながります。</p>
+      <div class="zukan-grid">
+
+        <article class="zukan-card">
+          <div class="zukan-card-head">
+            <span class="zukan-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 9h8M8 13h8M8 17h5"/></svg></span>
+            <h3>行政から指導や命令を受ける</h3>
+          </div>
+          <p class="zukan-summary">監督官庁から、原因究明や再発防止策の報告を求められる。</p>
+          <dl class="zukan-facts">
+            <div><dt>規模感</dt><dd>報告義務が数か月〜1年以上続くこともある</dd></div>
+            <div><dt>きっかけ</dt><dd>個人情報保護法、業法（金融・通信等）に基づく監督</dd></div>
+            <div><dt>経営としての意味</dt><dd>業種によっては、一般的な個人情報保護以上に重い監督対応が発生する</dd></div>
+          </dl>
+          <a class="zukan-action" href="zukan.html#cat-7">対応する対策を見る（組織・運用）<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </article>
+
+        <article class="zukan-card">
+          <div class="zukan-card-head">
+            <span class="zukan-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="3"/><circle cx="17" cy="9" r="2.4"/><path d="M2.5 20c.7-3.6 2.8-5.5 5.5-5.5s4.8 1.9 5.5 5.5M14.5 20c.4-2.4 1.6-3.8 3.5-3.8"/></svg></span>
+            <h3>役員報酬の減額など、経営責任が問われる</h3>
+          </div>
+          <p class="zukan-summary">経営陣が自ら報酬を返納するなど、責任の所在を明確にする対応が求められる。</p>
+          <dl class="zukan-facts">
+            <div><dt>規模感</dt><dd>月額報酬の一定割合を、一定期間返納する例がある</dd></div>
+            <div><dt>きっかけ</dt><dd>大規模な情報漏えい、対応の遅れ</dd></div>
+            <div><dt>経営としての意味</dt><dd>セキュリティは「現場の問題」ではなく、経営の説明責任そのもの</dd></div>
+          </dl>
+          <a class="zukan-action" href="zukan.html#cat-7">対応する対策を見る（組織・運用）<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ============ V. 気づかないまま広がる ============ -->
+    <section id="imp-5" class="zukan-section" style="--card-accent:var(--cat-5)">
+      <div class="zukan-cat-head">
+        <span class="zukan-cat-icon" style="background:var(--cat-5)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+        </span>
+        <h2 class="zukan-cat-title">気づかないまま、被害が広がる</h2>
+      </div>
+      <p class="zukan-cat-lead">侵害は「発生した瞬間」より「気づくまでの時間」が被害の大きさを左右します。気づく仕組みそのものへの投資が後回しにされがちです。</p>
+      <div class="zukan-grid">
+
+        <article class="zukan-card">
+          <div class="zukan-card-head">
+            <span class="zukan-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></span>
+            <h3>何か月〜何年も気づかれず、被害がじわじわ拡大する</h3>
+          </div>
+          <p class="zukan-summary">侵入されてから発覚するまで長い時間がかかり、その間に被害が広がる。</p>
+          <dl class="zukan-facts">
+            <div><dt>規模感</dt><dd>数か月から、長いものでは数年気づかれなかった例もある</dd></div>
+            <div><dt>きっかけ</dt><dd>監視体制の空白、ログの保管期間不足</dd></div>
+            <div><dt>経営としての意味</dt><dd>「気づく仕組み」への投資を怠ると、被害の全容すら把握できなくなる</dd></div>
+          </dl>
+          <a class="zukan-action" href="zukan.html#cat-4">対応する対策を見る（監視・検知）<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </article>
+
+        <article class="zukan-card">
+          <div class="zukan-card-head">
+            <span class="zukan-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 01-8.5 8.5 8.6 8.6 0 01-4-1L4 20l1-4.5a8.6 8.6 0 01-1-4A8.4 8.4 0 0112.5 3 8.4 8.4 0 0121 11.5z"/></svg></span>
+            <h3>攻撃者の主張が一人歩きし、会社の説明と食い違う情報が広まる</h3>
+          </div>
+          <p class="zukan-summary">攻撃者がSNSやダークウェブで被害規模を主張し、それが報道で取り上げられる。</p>
+          <dl class="zukan-facts">
+            <div><dt>規模感</dt><dd>会社側の確認より先に、攻撃者の主張が独り歩きすることがある</dd></div>
+            <div><dt>きっかけ</dt><dd>二重恐喝型の攻撃、初動対応・広報対応の遅れ</dd></div>
+            <div><dt>経営としての意味</dt><dd>「事実確認中」という説明だけでは、情報発信のスピードで後手に回る</dd></div>
+          </dl>
+          <a class="zukan-action" href="zukan.html#cat-7">対応する対策を見る（組織・運用）<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </article>
+
+      </div>
     </section>
 
     <section aria-labelledby="more-title">
       <h2 class="section-title" id="more-title">さらに読む</h2>
+      <p class="section-lead">「これが自社でも起きたら」をもう少し具体的に知りたい方へ。</p>
       <div class="link-cards">
         <a class="card" href="zukan.html">
-          <h3>セキュリティずかん</h3>
-          <p>一般的な保護手法を「どんな保護・範囲・攻撃・設定先」の4点で早見できる図鑑。これから対策を始める方向け。</p>
+          <h3>セキュリティ対策ずかん</h3>
+          <p>一般的な保護手法を「どんな保護・範囲・攻撃・設定先」の4点で早見できる図鑑。</p>
+        </a>
+        <a class="card" href="appendix.html">
+          <h3>付録：国内セキュリティ侵害 事例集</h3>
+          <p>企業名を含む、実際に国内で起きたセキュリティ侵害の詳しい経緯と再発防止策。</p>
         </a>
         <a class="card" href="lessons/cross-case-analysis.html">
           <h3>横断分析とチェックリスト</h3>
-          <p>全事例に共通するパターンと、自社点検のためのチェックリスト。</p>
-        </a>
-        <a class="card" href="https://github.com/Lab8010/security-postmortems">
-          <h3>GitHub リポジトリ</h3>
-          <p>全事例の Markdown 原稿と、グラフの元データ（data/incidents.json）。</p>
+          <p>事例集に共通するパターンと、自社点検のためのチェックリスト。</p>
         </a>
       </div>
     </section>
@@ -101,11 +312,8 @@
 
   <footer class="site-footer">
     <div class="wrap">
-      各ページの内容は記載の「最終確認日」時点の公開情報に基づきます。数値は各社・公的機関の発表を優先し、報道由来の値はその旨を明記しています。
+      このページは、国内で実際に起きた複数のセキュリティ侵害事例を一般化してまとめたものです。特定の企業・事案を指すものではありません。具体的な事例は<a href="appendix.html">付録</a>をご覧ください。
     </div>
   </footer>
-
-  <div class="tooltip" id="tooltip" role="tooltip"></div>
-  <script src="assets/app.js"></script>
 </body>
 </html>

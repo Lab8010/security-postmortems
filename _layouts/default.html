@@ -12,16 +12,19 @@
     <div class="wrap">
       <a class="brand" href="{{ '/' | relative_url }}">{{ site.title }}</a>
       <nav class="site-nav" aria-label="サイト内">
-        <a href="{{ '/#timeline' | relative_url }}">事例一覧</a>
+        <a href="{{ '/' | relative_url }}">影響ずかん（ホーム）</a>
+        <a href="{{ '/zukan.html' | relative_url }}">対策ずかん</a>
+        <a href="{{ '/appendix.html#timeline' | relative_url }}">付録：事例集</a>
         <a href="{{ '/lessons/cross-case-analysis.html' | relative_url }}">横断分析</a>
         <a href="https://github.com/Lab8010/security-postmortems/blob/main/{{ page.path }}">GitHubで見る</a>
       </nav>
     </div>
   </header>
   <main class="wrap">
+    <p class="appendix-badge">付録（Appendix）</p>
     <article class="doc">
       {{ content }}
-      <a class="back" href="{{ '/#timeline' | relative_url }}">← 事例一覧に戻る</a>
+      <a class="back" href="{{ '/appendix.html#timeline' | relative_url }}">← 付録の事例一覧に戻る</a>
     </article>
   </main>
   <footer class="site-footer">

@@ -1,5 +1,5 @@
-title: 国内セキュリティ侵害アーカイブ
-description: 日本国内で注目を集めたセキュリティ侵害を、公式発表をもとに原因と再発防止策まで整理したアーカイブ。
+title: セキュリティ影響ずかん
+description: セキュリティ侵害が起きると組織にどんな影響が及ぶかをまとめた早見図鑑と、一般的な対策・国内事例の付録資料。
 lang: ja
 baseurl: "/security-postmortems"
 url: "https://lab8010.github.io"

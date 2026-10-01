@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>付録：国内セキュリティ侵害事例集 | 国内セキュリティアーカイブ</title>
+  <meta name="description" content="日本国内で注目を集めたセキュリティ侵害を、公式発表をもとに原因と再発防止策まで整理した事例集（付録）。">
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html">セキュリティ影響ずかん</a>
+      <nav class="site-nav" aria-label="サイト内">
+        <a href="index.html">影響ずかん（ホーム）</a>
+        <a href="zukan.html">対策ずかん</a>
+        <a href="#impact">影響の大きさ</a>
+        <a href="#timeline">時系列</a>
+        <a href="lessons/cross-case-analysis.html">横断分析</a>
+        <a href="https://github.com/Lab8010/security-postmortems">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <p class="appendix-badge">付録（Appendix）</p>
+    <div class="hero">
+      <h1>国内セキュリティ侵害 事例集</h1>
+      <p>日本国内で注目を集めたセキュリティ侵害を、各社の公式発表をもとに「何が起き、なぜ起き、どう立て直したか」まで整理した詳細資料です。企業名を含む具体的な経緯を知りたい方向けの付録ページです。経営層向けの概要は <a href="index.html">セキュリティ影響ずかん</a> をご覧ください。</p>
+      <p class="meta" id="meta"></p>
+    </div>
+
+    <noscript><p class="noscript">グラフとタイムラインの表示には JavaScript が必要です。<a href="https://github.com/Lab8010/security-postmortems">GitHub のリポジトリ</a>から各事例を読むこともできます。</p></noscript>
+
+    <section id="impact" aria-labelledby="impact-title">
+      <h2 class="section-title" id="impact-title">影響の大きさ</h2>
+      <p class="section-lead">バーにカーソルを合わせると内訳が、クリックすると詳細ページが開きます。</p>
+      <div class="charts">
+        <figure class="card" style="margin:0">
+          <h3 class="chart-title">損益への影響額</h3>
+          <p class="chart-sub">会社が攻撃の影響として示した、営業利益（事業利益）への影響と特別損失の合計（億円）</p>
+          <ul class="legend">
+            <li><span class="swatch official" aria-hidden="true"></span>公式発表の値</li>
+            <li><span class="swatch reported" aria-hidden="true"></span>報道ベースの値</li>
+          </ul>
+          <ul class="bars" id="chart-amount"></ul>
+          <p class="chart-foot" id="amount-foot"></p>
+        </figure>
+        <figure class="card" style="margin:0">
+          <h3 class="chart-title">個人情報の対象件数</h3>
+          <p class="chart-sub">漏えいを確認した件数と「漏えいのおそれ」の合計（最新の公式値）</p>
+          <ul class="bars" id="chart-records"></ul>
+          <p class="chart-foot">KDDI はメールアドレスが漏えいした人数（うちパスワードは約762万人）。名古屋港は漏えいの形跡なし。</p>
+        </figure>
+      </div>
+      <details class="table-view">
+        <summary>表で見る</summary>
+        <div class="table-scroll">
+          <table class="data" id="data-table">
+            <thead><tr><th>発生</th><th>組織</th><th>種別</th><th>影響額（億円）</th><th>個人情報</th><th>停止・影響期間</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </details>
+    </section>
+
+    <section id="causes" aria-labelledby="causes-title">
+      <h2 class="section-title" id="causes-title">原因ランキング</h2>
+      <p class="section-lead">各事例の「原因」章を、本リポジトリが分類したものです。1件の事例が複数の原因に当てはまることがあるため、合計は掲載事例数より多くなります。バーをクリックすると、該当する事例が開きます。</p>
+      <div class="card" style="margin:0">
+        <h3 class="chart-title">原因タグの登場回数</h3>
+        <p class="chart-sub">全<span id="causes-total-incidents"></span>事例のうち、そのタグが該当した事例数</p>
+        <ul class="bars" id="chart-causes"></ul>
+        <p class="chart-foot">「原因非公表」は、2026-09-30時点で公式に原因が公表されていない事例です。今後の続報で他のタグに変わる可能性があります。</p>
+      </div>
+    </section>
+
+    <section id="timeline" aria-labelledby="timeline-title">
+      <h2 class="section-title" id="timeline-title">時系列</h2>
+      <p class="section-lead">新しい順に並べています（上が最新）。カードをクリックすると詳細ページに移動します。</p>
+      <ol class="timeline" id="timeline-list"></ol>
+    </section>
+
+    <section aria-labelledby="more-title">
+      <h2 class="section-title" id="more-title">さらに読む</h2>
+      <div class="link-cards">
+        <a class="card" href="index.html">
+          <h3>セキュリティ影響ずかん（ホーム）</h3>
+          <p>企業名を挙げず、侵害が起きるとどんな影響が組織に及ぶかをまとめた概要ページ。経営層向け。</p>
+        </a>
+        <a class="card" href="zukan.html">
+          <h3>セキュリティ対策ずかん</h3>
+          <p>一般的な保護手法を「どんな保護・範囲・攻撃・設定先」の4点で早見できる図鑑。これから対策を始める方向け。</p>
+        </a>
+        <a class="card" href="lessons/cross-case-analysis.html">
+          <h3>横断分析とチェックリスト</h3>
+          <p>全事例に共通するパターンと、自社点検のためのチェックリスト。</p>
+        </a>
+        <a class="card" href="https://github.com/Lab8010/security-postmortems">
+          <h3>GitHub リポジトリ</h3>
+          <p>全事例の Markdown 原稿と、グラフの元データ（data/incidents.json）。</p>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      各ページの内容は記載の「最終確認日」時点の公開情報に基づきます。数値は各社・公的機関の発表を優先し、報道由来の値はその旨を明記しています。
+    </div>
+  </footer>
+
+  <div class="tooltip" id="tooltip" role="tooltip"></div>
+  <script src="assets/app.js"></script>
+</body>
+</html>
