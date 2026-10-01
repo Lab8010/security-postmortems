@@ -1,7 +1,7 @@
 title: セキュリティずかん
 description: セキュリティ侵害が起きると組織にどんな影響が及ぶかをまとめた早見図鑑と、一般的な対策・国内事例の付録資料。
 lang: ja
-baseurl: "/security-postmortems"
+baseurl: "/security-zukan"
 url: "https://lab8010.github.io"
 
 markdown: kramdown
