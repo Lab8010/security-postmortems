@@ -14,6 +14,7 @@
       <nav class="site-nav" aria-label="サイト内">
         <a href="index.html"><strong>影響ずかん（ホーム）</strong></a>
         <a href="zukan.html">対策ずかん</a>
+        <a href="glossary.html">用語ずかん</a>
         <a href="appendix.html">付録：事例集</a>
         <a href="lessons/cross-case-analysis.html">横断分析</a>
         <a href="https://github.com/Lab8010/security-postmortems">GitHub</a>
@@ -58,7 +59,7 @@
           <p class="zukan-summary">受注システムや倉庫の管理システムが止まり、通常の物流が回らなくなる。</p>
           <dl class="zukan-facts">
             <div><dt>規模感</dt><dd>数週間〜数か月にわたり、取扱商品の1〜2割が店頭から欠ける規模になることもある</dd></div>
-            <div><dt>きっかけ</dt><dd>境界機器（VPN等）からの侵入、ランサムウェアによるシステムの暗号化</dd></div>
+            <div><dt>きっかけ</dt><dd>境界機器（<a class="term-link" href="glossary.html#t-vpn" data-term="vpn">VPN</a>等）からの侵入、<a class="term-link" href="glossary.html#t-ransomware" data-term="ransomware">ランサムウェア</a>によるシステムの暗号化</dd></div>
             <div><dt>経営としての意味</dt><dd>売上の落ち込みだけでなく、復旧までの人件費・手作業対応コストが積み上がる</dd></div>
           </dl>
           <a class="zukan-action" href="zukan.html#cat-1">対応する対策を見る（ネットワーク・境界）<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
@@ -171,7 +172,7 @@
         <article class="zukan-card">
           <div class="zukan-card-head">
             <span class="zukan-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="9" width="16" height="11" rx="2"/><path d="M8 9V6a4 4 0 118 0v3"/><path d="M12 13v3"/></svg></span>
-            <h3>身代金を要求され、支払うかどうかの判断を迫られる</h3>
+            <h3><a class="term-link" href="glossary.html#t-ransomware" data-term="ransomware">身代金</a>を要求され、支払うかどうかの判断を迫られる</h3>
           </div>
           <ul class="zukan-industries"><li class="chip industry-generic">業種を問わず</li></ul>
           <p class="zukan-summary">攻撃者からデータの復号や非公開と引き換えに金銭を要求される。</p>
@@ -245,13 +246,13 @@
         <article class="zukan-card">
           <div class="zukan-card-head">
             <span class="zukan-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.3-4.3"/><path d="M9 11h4"/></svg></span>
-            <h3>漏れた情報がダークウェブで公開され、不安が長期化する</h3>
+            <h3>漏れた情報が<a class="term-link" href="glossary.html#t-darkweb" data-term="darkweb">ダークウェブ</a>で公開され、不安が長期化する</h3>
           </div>
           <ul class="zukan-industries"><li class="chip industry-generic">業種を問わず</li></ul>
           <p class="zukan-summary">攻撃者が情報を公開サイトに掲載し、悪用への不安が続く。</p>
           <dl class="zukan-facts">
             <div><dt>規模感</dt><dd>公開から発覚まで時間差があり、後から追加の被害が判明することもある</dd></div>
-            <div><dt>きっかけ</dt><dd>二重恐喝型のランサムウェア（暗号化に加えて情報を公開する手口）</dd></div>
+            <div><dt>きっかけ</dt><dd><a class="term-link" href="glossary.html#t-double-extortion" data-term="double-extortion">二重恐喝</a>型のランサムウェア（暗号化に加えて情報を公開する手口）</dd></div>
             <div><dt>経営としての意味</dt><dd>一度の公表で終わらず、追加の通知・対応が繰り返し必要になる</dd></div>
           </dl>
           <a class="zukan-action" href="zukan.html#cat-4">対応する対策を見る（監視・検知）<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
@@ -289,7 +290,7 @@
         <article class="zukan-card">
           <div class="zukan-card-head">
             <span class="zukan-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 9h8M8 13h8M8 17h5"/></svg></span>
-            <h3>行政から指導や命令を受ける</h3>
+            <h3><a class="term-link" href="glossary.html#t-administrative-guidance" data-term="administrative-guidance">行政から指導や命令を受ける</a></h3>
           </div>
           <ul class="zukan-industries"><li class="chip industry">金融・保険</li><li class="chip industry">通信</li><li class="chip industry-generic">業種を問わず（個人情報保護法）</li></ul>
           <p class="zukan-summary">監督官庁から、原因究明や再発防止策の報告を求められる。</p>
@@ -388,5 +389,8 @@
       このページは、国内で実際に起きた複数のセキュリティ侵害事例を一般化してまとめたものです。特定の企業・事案を指すものではありません。具体的な事例は<a href="appendix.html">付録</a>をご覧ください。
     </div>
   </footer>
+
+  <div class="tooltip" id="tooltip" role="tooltip"></div>
+  <script src="assets/terms.js"></script>
 </body>
 </html>

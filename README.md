@@ -6,12 +6,13 @@
 
 ## サイトの構成
 
-公開サイト（GitHub Pages）は3つのページで構成されています。
+公開サイト（GitHub Pages）は4つのページで構成されています。
 
 | ページ | 読者 | 内容 |
 |---|---|---|
 | **[index.html](index.html)「セキュリティ影響ずかん」** | 経営層・非IT部門など、組織を動かせる立場の方 | セキュリティ侵害が起きるとどんな影響が及ぶかを、**企業名を挙げずに**パターンとしてまとめたトップページ。各カードから対応する対策へリンクする |
 | **[zukan.html](zukan.html)「セキュリティ対策ずかん」** | これから対策を始める方 | 一般的な保護手法を「どんな保護・範囲・攻撃・設定先」の4点で早見できる図鑑 |
+| **[glossary.html](glossary.html)「セキュリティ用語ずかん」** | 日頃セキュリティに関わらない方 | VPN・EDR・ゼロデイなど、サイト内で使われる用語をやさしく説明する用語集。他ページの該当語句にはホバー/クリックでここへ遷移できるリンクを付与 |
 | **[appendix.html](appendix.html)「付録：国内セキュリティ侵害 事例集」** | 詳しい経緯を知りたい方 | 企業名を含む具体的な事例・グラフ・時系列・原因ランキング（旧トップページ） |
 
 この README と `incidents/` 配下の個別ページは、企業名を含む一次情報の記録として従来どおり維持します（下記の事例一覧は `appendix.html` と同じ内容です）。
@@ -53,15 +54,17 @@
 ├── README.md                    # このファイル（事例一覧）
 ├── index.html                   # トップページ「セキュリティ影響ずかん」（経営層向け・企業名なし）
 ├── zukan.html                   # 「セキュリティ対策ずかん」（一般的な対策の早見図鑑）
+├── glossary.html                # 「セキュリティ用語ずかん」（初心者向け用語集）
 ├── appendix.html                # 付録「国内セキュリティ侵害 事例集」（旧トップページ。企業名入りの詳細・グラフ・時系列）
 ├── data/
-│   └── incidents.json           # appendix.html のグラフ・時系列の元データ
+│   ├── incidents.json           # appendix.html のグラフ・時系列の元データ
+│   └── terms.json               # glossary.html の用語データ（index.html / zukan.html のホバー説明にも使用）
 ├── incidents/
 │   └── YYYY-MM_<企業名>/         # 発生年月（攻撃の検知・公表月）＋企業名
 │       └── README.md
 ├── lessons/
 │   └── cross-case-analysis.md   # 事例横断の分析
-├── assets/                      # サイトのCSS・JavaScript
+├── assets/                      # サイトのCSS・JavaScript（terms.js が用語リンク・ホバー説明を描画）
 └── _layouts/, _config.yml       # 詳細ページ用の Jekyll 設定
 ```
 

@@ -378,3 +378,31 @@ a.event-card:hover { border-color: var(--accent); transform: translateY(-1px); }
   .zukan-facts > div { grid-template-columns: 1fr; gap: 2px; }
   .zukan-facts dt { font-weight: 600; color: var(--ink-2); }
 }
+
+/* ===== Term links (hover + click to glossary) ===== */
+.term-link {
+  color: inherit; text-decoration: underline dotted; text-underline-offset: 2px;
+  text-decoration-color: var(--accent); cursor: help;
+}
+.term-link:hover, .term-link:focus-visible { color: var(--accent); }
+
+/* ===== Glossary page ===== */
+.glossary-search {
+  width: 100%; max-width: 360px; margin: 18px 0 8px; padding: 9px 14px;
+  font-size: 14px; font-family: inherit; color: var(--ink);
+  background: var(--surface); border: 1px solid var(--border); border-radius: 999px;
+}
+.glossary-search:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+.glossary-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; }
+.glossary-card {
+  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+  box-shadow: var(--shadow); padding: 16px 18px; scroll-margin-top: 16px;
+  border-left: 3px solid var(--card-accent, var(--accent));
+}
+.glossary-card h3 { margin: 0 0 6px; font-size: 15.5px; }
+.glossary-reading { font-size: 12px; font-weight: 400; color: var(--muted); margin-left: 2px; }
+.glossary-short { margin: 0 0 6px; font-size: 13.5px; line-height: 1.65; }
+.glossary-long { margin: 0 0 8px; font-size: 13px; color: var(--ink-2); line-height: 1.65; }
+.glossary-related { margin: 6px 0 0; padding-top: 8px; border-top: 1px dashed var(--grid); font-size: 12px; color: var(--muted); }
+.glossary-related a { color: var(--accent); text-decoration: none; }
+.glossary-related a:hover { text-decoration: underline; }

@@ -14,6 +14,7 @@
       <nav class="site-nav" aria-label="サイト内">
         <a href="index.html">影響ずかん（ホーム）</a>
         <a href="zukan.html"><strong>対策ずかん</strong></a>
+        <a href="glossary.html">用語ずかん</a>
         <a href="appendix.html">付録：事例集</a>
         <a href="lessons/cross-case-analysis.html">横断分析</a>
         <a href="https://github.com/Lab8010/security-postmortems">GitHub</a>
@@ -54,7 +55,7 @@
         <article class="zukan-card">
           <div class="zukan-card-head">
             <span class="zukan-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 5-3 8-7 9-4-1-7-4-7-9V6l7-3z"/></svg></span>
-            <h3>VPN脱却・ゼロトラストネットワークアクセス（ZTNA）</h3>
+            <h3><a class="term-link" href="glossary.html#t-vpn" data-term="vpn">VPN</a>脱却・<a class="term-link" href="glossary.html#t-ztna" data-term="ztna">ゼロトラスト</a>ネットワークアクセス（ZTNA）</h3>
           </div>
           <p class="zukan-summary">「社内は安全」という前提をやめ、すべての通信を都度検証する考え方。VPN機器そのものを廃止する動きも広がっている。</p>
           <dl class="zukan-facts">
@@ -69,7 +70,7 @@
         <article class="zukan-card">
           <div class="zukan-card-head">
             <span class="zukan-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></span>
-            <h3>ファイアウォール・アクセス制御（IP許可リスト）</h3>
+            <h3><a class="term-link" href="glossary.html#t-firewall" data-term="firewall">ファイアウォール</a>・アクセス制御（IP許可リスト）</h3>
           </div>
           <p class="zukan-summary">決められた通信だけを通す「門番」。許可リストは、追加した経緯が分からないまま放置されがちな点に注意。</p>
           <dl class="zukan-facts">
@@ -84,7 +85,7 @@
         <article class="zukan-card">
           <div class="zukan-card-head">
             <span class="zukan-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="5" rx="1.5"/><rect x="3" y="10" width="18" height="5" rx="1.5"/><rect x="3" y="16" width="18" height="5" rx="1.5"/></svg></span>
-            <h3>ネットワークセグメンテーション（内部の壁）</h3>
+            <h3><a class="term-link" href="glossary.html#t-segmentation" data-term="segmentation">ネットワークセグメンテーション</a>（内部の壁）</h3>
           </div>
           <p class="zukan-summary">社内ネットワークをいくつかの区画に分け、1か所が破られても全体に広がらないようにする。</p>
           <dl class="zukan-facts">
@@ -113,7 +114,7 @@
         <article class="zukan-card">
           <div class="zukan-card-head">
             <span class="zukan-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 118 0v3"/><circle cx="12" cy="15.5" r="1.4"/></svg></span>
-            <h3>多要素認証（MFA）</h3>
+            <h3><a class="term-link" href="glossary.html#t-mfa" data-term="mfa">多要素認証（MFA）</a></h3>
           </div>
           <p class="zukan-summary">パスワードに加えて、スマホのコードなど「もう1つの証拠」を求める。例外なく全アカウントに適用することが重要。</p>
           <dl class="zukan-facts">
@@ -128,7 +129,7 @@
         <article class="zukan-card">
           <div class="zukan-card-head">
             <span class="zukan-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="4"/><path d="M11 11l9 9m-4-4l2.5-2.5M16 19l2-2"/></svg></span>
-            <h3>強いパスワードポリシーと管理</h3>
+            <h3>強い<a class="term-link" href="glossary.html#t-password-policy" data-term="password-policy">パスワードポリシー</a>と管理</h3>
           </div>
           <p class="zukan-summary">長く複雑で、使い回さず、定期的に見直す。平文で保存しないことも同じくらい重要。</p>
           <dl class="zukan-facts">
@@ -143,7 +144,7 @@
         <article class="zukan-card">
           <div class="zukan-card-head">
             <span class="zukan-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 5-3 8-7 9-4-1-7-4-7-9V6l7-3z"/><path d="M9.5 12.5l1.8 1.8 3.2-3.6"/></svg></span>
-            <h3>特権アカウント管理（PAM）・最小権限の原則</h3>
+            <h3><a class="term-link" href="glossary.html#t-pam" data-term="pam">特権アカウント管理（PAM）</a>・<a class="term-link" href="glossary.html#t-least-privilege" data-term="least-privilege">最小権限の原則</a></h3>
           </div>
           <p class="zukan-summary">管理者権限は「常に持つ」のではなく「必要なときだけ」与える。侵害されたときの被害を小さくする。</p>
           <dl class="zukan-facts">
@@ -158,7 +159,7 @@
         <article class="zukan-card">
           <div class="zukan-card-head">
             <span class="zukan-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="8" r="2.6"/><circle cx="17" cy="8" r="2.6"/><path d="M3.5 19c.6-3 2.2-4.5 3.5-4.5s2.9 1.5 3.5 4.5M13.5 19c.6-3 2.2-4.5 3.5-4.5s2.9 1.5 3.5 4.5"/></svg></span>
-            <h3>シングルサインオン（SSO）とID統合</h3>
+            <h3><a class="term-link" href="glossary.html#t-sso" data-term="sso">シングルサインオン（SSO）</a>とID統合</h3>
           </div>
           <p class="zukan-summary">バラバラのアカウントを1つのID基盤にまとめ、まとめて守る。不要になったアカウントを一括で止められる。</p>
           <dl class="zukan-facts">
@@ -187,7 +188,7 @@
         <article class="zukan-card">
           <div class="zukan-card-head">
             <span class="zukan-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="2"/><circle cx="12" cy="12" r="2.4"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></svg></span>
-            <h3>EDR（Endpoint Detection and Response）</h3>
+            <h3><a class="term-link" href="glossary.html#t-edr" data-term="edr">EDR</a>（Endpoint Detection and Response）</h3>
           </div>
           <p class="zukan-summary">PCやサーバーの中の「不審な動き」を見つけて対処する。導入していないサーバーが1台でもあると、そこが弱点になる。</p>
           <dl class="zukan-facts">
@@ -202,7 +203,7 @@
         <article class="zukan-card">
           <div class="zukan-card-head">
             <span class="zukan-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 2v3M16 2v3M8 19v3M16 19v3"/><path d="M9 9h6v6H9z"/></svg></span>
-            <h3>資産管理・脆弱性管理（パッチ適用）</h3>
+            <h3>資産管理・<a class="term-link" href="glossary.html#t-patch" data-term="patch">脆弱性管理（パッチ適用）</a></h3>
           </div>
           <p class="zukan-summary">自社が持つ機器・ソフトを把握し、弱点（脆弱性）を塞ぎ続ける。「把握していない機器」が最大のリスクになる。</p>
           <dl class="zukan-facts">
@@ -231,7 +232,7 @@
         <article class="zukan-card">
           <div class="zukan-card-head">
             <span class="zukan-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6-10-6-10-6z"/><circle cx="12" cy="12" r="2.6"/></svg></span>
-            <h3>SOC・24時間365日監視</h3>
+            <h3><a class="term-link" href="glossary.html#t-soc" data-term="soc">SOC</a>・24時間365日監視</h3>
           </div>
           <p class="zukan-summary">常に人と仕組みでアラートを見張る体制。自社運用でも外部委託でも、「夜間・休日に見る人がいるか」が分かれ目になる。</p>
           <dl class="zukan-facts">
@@ -246,7 +247,7 @@
         <article class="zukan-card">
           <div class="zukan-card-head">
             <span class="zukan-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4h9l4 4v12a1 1 0 01-1 1H6a1 1 0 01-1-1V5a1 1 0 011-1z"/><path d="M9 11h6M9 14h6M9 17h3"/></svg></span>
-            <h3>ログの収集・保管（SIEM含む）</h3>
+            <h3>ログの収集・保管（<a class="term-link" href="glossary.html#t-siem" data-term="siem">SIEM</a>含む）</h3>
           </div>
           <p class="zukan-summary">「誰が・いつ・何をしたか」の記録を残し、後から調べられるようにする。入口（VPN等）のログほど見落とされやすい。</p>
           <dl class="zukan-facts">
@@ -261,7 +262,7 @@
         <article class="zukan-card">
           <div class="zukan-card-head">
             <span class="zukan-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.3-4.3"/></svg></span>
-            <h3>ダークウェブ監視・脅威インテリジェンス</h3>
+            <h3><a class="term-link" href="glossary.html#t-darkweb" data-term="darkweb">ダークウェブ</a>監視・脅威インテリジェンス</h3>
           </div>
           <p class="zukan-summary">自社の情報が漏えいサイトに出ていないか外部から見張る。公開を確認してから初めて漏えいに気づく事例が多い。</p>
           <dl class="zukan-facts">
@@ -290,7 +291,7 @@
         <article class="zukan-card">
           <div class="zukan-card-head">
             <span class="zukan-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="5" rx="1.5"/><rect x="4" y="11" width="16" height="5" rx="1.5"/><path d="M8 20h8"/></svg></span>
-            <h3>バックアップ（3-2-1ルール・イミュータブル・オフライン）</h3>
+            <h3><a class="term-link" href="glossary.html#t-backup-321" data-term="backup-321">バックアップ（3-2-1ルール</a>・イミュータブル・オフライン）</h3>
           </div>
           <p class="zukan-summary">本番とは別の場所に、書き換えられない形で複製を持つ。同じ場所に置いたバックアップは、一緒に暗号化・削除されうる。</p>
           <dl class="zukan-facts">
@@ -305,7 +306,7 @@
         <article class="zukan-card">
           <div class="zukan-card-head">
             <span class="zukan-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 118 0v3"/><circle cx="12" cy="15" r="1.3"/></svg></span>
-            <h3>データの暗号化</h3>
+            <h3>データの<a class="term-link" href="glossary.html#t-encryption" data-term="encryption">暗号化</a></h3>
           </div>
           <p class="zukan-summary">盗まれても読めない形にしておく。「そもそも保有しない」設計（クレジットカード情報の非保持等）も同じ発想。</p>
           <dl class="zukan-facts">
@@ -320,7 +321,7 @@
         <article class="zukan-card">
           <div class="zukan-card-head">
             <span class="zukan-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h10M4 17h13"/></svg></span>
-            <h3>アクセス権限とデータの保管ルール</h3>
+            <h3><a class="term-link" href="glossary.html#t-dlp" data-term="dlp">アクセス権限とデータの保管ルール</a></h3>
           </div>
           <p class="zukan-summary">誰が・どのデータに・どこまでアクセスできるかを決め、守らせる。ルールがあっても「守られているか」の確認が欠かせない。</p>
           <dl class="zukan-facts">
@@ -349,7 +350,7 @@
         <article class="zukan-card">
           <div class="zukan-card-head">
             <span class="zukan-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/><path d="M7 14l2 2 4-4.5"/></svg></span>
-            <h3>WAF（Web Application Firewall）</h3>
+            <h3><a class="term-link" href="glossary.html#t-waf" data-term="waf">WAF</a>（Web Application Firewall）</h3>
           </div>
           <p class="zukan-summary">Webサイトへの悪意ある入力を見分けて止める。アプリ側の不備を外側からカバーする、いわば「盾」。</p>
           <dl class="zukan-facts">
@@ -364,7 +365,7 @@
         <article class="zukan-card">
           <div class="zukan-card-head">
             <span class="zukan-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="3"/><path d="M5 20c1-4 4-6 7-6s6 2 7 6"/><path d="M15.5 4.5l1.3 1.3 2.2-2.4"/></svg></span>
-            <h3>認可制御（データ照会時のアクセス権チェック）</h3>
+            <h3><a class="term-link" href="glossary.html#t-authorization" data-term="authorization">認可制御</a>（データ照会時のアクセス権チェック）</h3>
           </div>
           <p class="zukan-summary">ログインできても「他人のデータ」は見せない仕組み。正規のログインを悪用した大量データ取得を防ぐ。</p>
           <dl class="zukan-facts">
@@ -379,7 +380,7 @@
         <article class="zukan-card">
           <div class="zukan-card-head">
             <span class="zukan-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.3-4.3"/></svg></span>
-            <h3>脆弱性診断・侵入テスト</h3>
+            <h3><a class="term-link" href="glossary.html#t-pentest" data-term="pentest">脆弱性診断・侵入テスト</a></h3>
           </div>
           <p class="zukan-summary">自分たちで「攻撃者のふり」をして弱点を事前に見つける。想定していない手口まで検証できるかが鍵。</p>
           <dl class="zukan-facts">
@@ -408,7 +409,7 @@
         <article class="zukan-card">
           <div class="zukan-card-head">
             <span class="zukan-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 4v4c0 5.5-3.8 9.5-9 11-5.2-1.5-9-5.5-9-11V7l9-4z"/><path d="M12 8v5M12 16.5h.01"/></svg></span>
-            <h3>インシデント対応計画（BCP/IRP）とCSIRT</h3>
+            <h3>インシデント対応計画（<a class="term-link" href="glossary.html#t-bcp" data-term="bcp">BCP</a>/IRP）と<a class="term-link" href="glossary.html#t-csirt" data-term="csirt">CSIRT</a></h3>
           </div>
           <p class="zukan-summary">攻撃を受けたときに「誰が何をするか」を事前に決めておく。災害用のBCPとは別に、サイバー攻撃用の計画が必要。</p>
           <dl class="zukan-facts">
@@ -438,7 +439,7 @@
         <article class="zukan-card">
           <div class="zukan-card-head">
             <span class="zukan-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.3-4.3"/><path d="M8.5 11l2 2 3.5-3.8"/></svg></span>
-            <h3>外部監査・第三者評価</h3>
+            <h3><a class="term-link" href="glossary.html#t-audit" data-term="audit">外部監査・第三者評価</a></h3>
           </div>
           <p class="zukan-summary">身内だけでなく、外部の目でセキュリティ体制を定期的にチェックする。長年気づかれなかった不備の発見につながる。</p>
           <dl class="zukan-facts">
@@ -453,7 +454,7 @@
         <article class="zukan-card">
           <div class="zukan-card-head">
             <span class="zukan-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="3"/><circle cx="17" cy="9" r="2.4"/><path d="M2.5 20c.7-3.6 2.8-5.5 5.5-5.5s4.8 1.9 5.5 5.5M14.5 20c.4-2.4 1.6-3.8 3.5-3.8"/></svg></span>
-            <h3>セキュリティガバナンス（CISO・専任組織・取締役会報告）</h3>
+            <h3><a class="term-link" href="glossary.html#t-governance" data-term="governance">セキュリティガバナンス</a>（<a class="term-link" href="glossary.html#t-ciso" data-term="ciso">CISO</a>・専任組織・取締役会報告）</h3>
           </div>
           <p class="zukan-summary">セキュリティを「現場任せ」にせず、経営の責任として体制を作る。独立した組織と専任役員を置く企業が増えている。</p>
           <dl class="zukan-facts">
@@ -485,5 +486,8 @@
       このページは、本アーカイブに掲載した国内事例の再発防止策と、一般的な情報セキュリティの考え方をもとに作成した概要資料です。個々の対策の詳しい実装方法は、各製品・サービスのドキュメントや専門機関の資料をご確認ください。
     </div>
   </footer>
+
+  <div class="tooltip" id="tooltip" role="tooltip"></div>
+  <script src="assets/terms.js"></script>
 </body>
 </html>
