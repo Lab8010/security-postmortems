@@ -40,6 +40,7 @@
 .
 ├── README.md                    # このファイル（事例一覧）
 ├── index.html                   # Webサイトのトップページ（GitHub Pages）
+├── zukan.html                   # セキュリティずかん（一般的な対策の早見図鑑）
 ├── data/
 │   └── incidents.json           # トップページのグラフ・時系列の元データ
 ├── incidents/

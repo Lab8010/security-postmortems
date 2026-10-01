@@ -18,6 +18,14 @@
   --shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 4px 16px rgba(0, 0, 0, 0.04);
   --radius: 12px;
   --font: system-ui, -apple-system, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic UI", "Segoe UI", sans-serif;
+  /* カテゴリ配色（ずかん用、7カテゴリ分。dataviz既定パレットの先頭7色をそのまま使用、検証済み） */
+  --cat-1: #2a78d6; /* ネットワーク・境界 */
+  --cat-2: #eb6834; /* 認証・ID */
+  --cat-3: #1baf7a; /* エンドポイント */
+  --cat-4: #eda100; /* 監視・検知 */
+  --cat-5: #e87ba4; /* データ保護 */
+  --cat-6: #008300; /* アプリケーション */
+  --cat-7: #4a3aa7; /* 組織・運用 */
 }
 
 @media (prefers-color-scheme: dark) {
@@ -38,6 +46,13 @@
     --series-records: #3987e5;
     --track: #1f2632;
     --shadow: none;
+    --cat-1: #3987e5;
+    --cat-2: #d95926;
+    --cat-3: #199e70;
+    --cat-4: #c98500;
+    --cat-5: #d55181;
+    --cat-6: #008300;
+    --cat-7: #9085e9;
   }
 }
 
@@ -272,3 +287,71 @@ a.event-card:hover { border-color: var(--accent); transform: translateY(-1px); }
 .doc pre code { background: none; padding: 0; }
 .doc li { margin: 2px 0; }
 .back { display: inline-block; margin-top: 24px; font-size: 14px; }
+
+/* ===== Zukan (security measures catalog) ===== */
+.zukan-legend {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  margin: 20px 0 4px; padding: 0; list-style: none;
+}
+.zukan-legend a {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 13px; text-decoration: none; color: var(--ink);
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 999px; padding: 6px 12px 6px 8px;
+}
+.zukan-legend a:hover { border-color: var(--accent); }
+.zukan-legend .dot { width: 10px; height: 10px; border-radius: 50%; flex: none; }
+
+.zukan-section { padding: 28px 0 8px; scroll-margin-top: 16px; }
+.zukan-cat-head { display: flex; align-items: center; gap: 10px; margin-bottom: 4px; }
+.zukan-cat-icon {
+  width: 34px; height: 34px; border-radius: 9px; flex: none;
+  display: flex; align-items: center; justify-content: center;
+  color: #fff;
+}
+.zukan-cat-icon svg { width: 19px; height: 19px; }
+.zukan-cat-title { font-size: 19px; margin: 0; }
+.zukan-cat-lead { margin: 6px 0 18px; color: var(--ink-2); font-size: 14.5px; max-width: 56em; }
+
+.zukan-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+.zukan-card {
+  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+  box-shadow: var(--shadow); padding: 18px 18px 16px; min-width: 0;
+  border-top: 3px solid var(--card-accent, var(--accent));
+  display: flex; flex-direction: column; gap: 10px;
+}
+.zukan-card-head { display: flex; align-items: flex-start; gap: 10px; }
+.zukan-icon {
+  width: 30px; height: 30px; border-radius: 8px; flex: none;
+  display: flex; align-items: center; justify-content: center;
+  background: color-mix(in srgb, var(--card-accent, var(--accent)) 16%, transparent);
+  color: var(--card-accent, var(--accent));
+}
+.zukan-icon svg { width: 17px; height: 17px; }
+.zukan-card h3 { font-size: 15.5px; margin: 2px 0 0; line-height: 1.45; }
+.zukan-summary { margin: 0; font-size: 13.5px; color: var(--ink-2); line-height: 1.6; }
+.zukan-facts { margin: 2px 0 0; padding: 10px 0 0; border-top: 1px solid var(--grid); display: grid; gap: 8px; }
+.zukan-facts > div { display: grid; grid-template-columns: 5.2em 1fr; gap: 8px; align-items: baseline; }
+.zukan-facts dt { font-size: 11.5px; color: var(--muted); }
+.zukan-facts dd { margin: 0; font-size: 13px; line-height: 1.55; }
+.zukan-related { margin: 4px 0 0; padding-top: 8px; border-top: 1px dashed var(--grid); font-size: 12.5px; color: var(--muted); line-height: 1.7; }
+.zukan-related a { color: var(--accent); text-decoration: none; }
+.zukan-related a:hover { text-decoration: underline; }
+
+.zukan-howto {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px; margin: 18px 0 0;
+}
+.zukan-howto div {
+  background: var(--surface-2); border-radius: 8px; padding: 10px 12px;
+}
+.zukan-howto dt { font-size: 11.5px; color: var(--muted); margin-bottom: 2px; }
+.zukan-howto dd { margin: 0; font-size: 13px; font-weight: 600; }
+
+@media (max-width: 480px) {
+  .zukan-facts > div { grid-template-columns: 1fr; gap: 2px; }
+  .zukan-facts dt { font-weight: 600; color: var(--ink-2); }
+}
