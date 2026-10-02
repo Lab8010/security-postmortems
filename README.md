@@ -64,7 +64,7 @@
 │       └── README.md
 ├── lessons/
 │   └── cross-case-analysis.md   # 事例横断の分析
-├── assets/                      # サイトのCSS・JavaScript（terms.js が用語リンク・ホバー説明を描画）
+├── assets/                      # サイトのCSS・JavaScript（terms.js が用語リンク・ホバー説明、industry-filter.js が影響ずかんの業界フィルター、theme.js がライト/ダーク切替を担当）
 └── _layouts/, _config.yml       # 詳細ページ用の Jekyll 設定
 ```
 

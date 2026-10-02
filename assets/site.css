@@ -28,8 +28,9 @@
   --cat-7: #4a3aa7; /* 組織・運用 */
 }
 
+/* ダークモード：OS設定に追従（既定）。手動切替は <html data-theme="light|dark"> で上書き（assets/theme.js） */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
     color-scheme: dark;
     --page: #0d0d0d;
     --surface: #1a1a19;
@@ -54,6 +55,31 @@
     --cat-6: #008300;
     --cat-7: #9085e9;
   }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page: #0d0d0d;
+  --surface: #1a1a19;
+  --surface-2: #232321;
+  --ink: #ffffff;
+  --ink-2: #c3c2b7;
+  --muted: #a3a198;
+  --grid: #2c2c2a;
+  --baseline: #383835;
+  --border: rgba(255, 255, 255, 0.10);
+  --accent: #6da7ec;
+  --series-official: #3987e5;
+  --series-reported: #d95926;
+  --series-records: #3987e5;
+  --track: #1f2632;
+  --shadow: none;
+  --cat-1: #3987e5;
+  --cat-2: #d95926;
+  --cat-3: #199e70;
+  --cat-4: #c98500;
+  --cat-5: #d55181;
+  --cat-6: #008300;
+  --cat-7: #9085e9;
 }
 
 /* ===== Base ===== */
@@ -406,3 +432,26 @@ a.event-card:hover { border-color: var(--accent); transform: translateY(-1px); }
 .glossary-related { margin: 6px 0 0; padding-top: 8px; border-top: 1px dashed var(--grid); font-size: 12px; color: var(--muted); }
 .glossary-related a { color: var(--accent); text-decoration: none; }
 .glossary-related a:hover { text-decoration: underline; }
+
+/* ===== 影響ずかん：業界フィルター ===== */
+.industry-filter-wrap { margin: 20px 0 0; }
+.industry-filter-label { font-size: 13px; font-weight: 600; margin: 0 0 6px; }
+.industry-filter { display: flex; flex-wrap: wrap; gap: 8px; }
+.industry-btn {
+  font: inherit; font-size: 13px; color: var(--ink); cursor: pointer;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 999px; padding: 6px 14px;
+}
+.industry-btn:hover { border-color: var(--accent); }
+.industry-btn[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--page); }
+.industry-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.industry-status { font-size: 13px; color: var(--muted); margin: 8px 0 0; }
+[hidden] { display: none !important; }
+
+/* ===== テーマ切替ボタン ===== */
+.theme-toggle {
+  font: inherit; font-size: 13px; color: var(--ink-2); cursor: pointer;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 999px; padding: 2px 12px; line-height: 1.6;
+}
+.theme-toggle:hover { color: var(--ink); border-color: var(--accent); }

@@ -6,6 +6,7 @@
   <title>セキュリティ影響ずかん</title>
   <meta name="description" content="セキュリティ侵害が起きると組織にどんな影響が及ぶのかを、企業名を挙げずにパターンとしてまとめた早見図鑑。気になる影響から、対応する対策へ進めます。">
   <link rel="stylesheet" href="assets/site.css">
+  <script src="assets/theme.js"></script>
 </head>
 <body>
   <header class="site-header">
@@ -27,6 +28,12 @@
       <h1>セキュリティ影響ずかん</h1>
       <p>セキュリティの侵害が起きると、組織には具体的にどんな影響が及ぶのか。IT部門でなくても、経営や事業の意思決定に関わるすべての方に知っておいてほしいパターンを、特定の企業名を挙げずにまとめました。「ああ、こうなったら困るな」と思う影響が見つかったら、カードの先にある<strong>対応する対策</strong>に進んでみてください。</p>
       <p class="meta">このページは、国内で実際に起きた複数の事例を一般化したものです。企業名を含む具体的な経緯は、<a href="appendix.html">付録の事例集</a>で読めます。各カードの業種タグは、特に影響が大きい・現れ方が特徴的な業種を示したものです。「業種を問わず」は、どの業種でも起こりうる影響です。</p>
+    </div>
+
+    <div class="industry-filter-wrap">
+      <p class="industry-filter-label" id="industry-filter-label">業界で絞り込む</p>
+      <div class="industry-filter" id="industry-filter" role="group" aria-labelledby="industry-filter-label"></div>
+      <p class="industry-status" id="industry-status" aria-live="polite"></p>
     </div>
 
     <nav aria-label="カテゴリ">
@@ -55,7 +62,7 @@
             <span class="zukan-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10l2-6h14l2 6M5 10h14v9a1 1 0 01-1 1H6a1 1 0 01-1-1v-9z"/><path d="M9 14h6"/></svg></span>
             <h3>受注・出荷が止まり、商品が店頭やお客様に届かなくなる</h3>
           </div>
-          <ul class="zukan-industries"><li class="chip industry">小売・EC</li><li class="chip industry">製造業</li><li class="chip industry">物流</li></ul>
+          <ul class="zukan-industries"><li class="chip industry">小売・EC</li><li class="chip industry">製造業</li><li class="chip industry">食品・飲料</li><li class="chip industry">物流</li></ul>
           <p class="zukan-summary">受注システムや倉庫の管理システムが止まり、通常の物流が回らなくなる。</p>
           <dl class="zukan-facts">
             <div><dt>規模感</dt><dd>数週間〜数か月にわたり、取扱商品の1〜2割が店頭から欠ける規模になることもある</dd></div>
@@ -100,7 +107,7 @@
             <span class="zukan-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="13" width="18" height="7" rx="1"/><circle cx="7" cy="9" r="2.2"/><circle cx="12" cy="9" r="2.2"/><circle cx="17" cy="9" r="2.2"/><path d="M7 11.2V13M12 11.2V13M17 11.2V13"/></svg></span>
             <h3>工場の生産ラインが止まり、出荷計画全体が崩れる</h3>
           </div>
-          <ul class="zukan-industries"><li class="chip industry">製造業</li></ul>
+          <ul class="zukan-industries"><li class="chip industry">製造業</li><li class="chip industry">食品・飲料</li></ul>
           <p class="zukan-summary">受注・基幹システムと工場の生産ラインが連動しているため、片方の停止がもう片方にも波及する。</p>
           <dl class="zukan-facts">
             <div><dt>規模感</dt><dd>全工場が数日〜1週間程度停止し、通常の生産水準に戻るまで数か月かかることもある</dd></div>
@@ -218,7 +225,7 @@
             <span class="zukan-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 20c.6-3.4 2.6-5.3 6-5.3s5.4 1.9 6 5.3"/><path d="M19 8h2M20 7v2"/></svg></span>
             <h3>顧客の個人情報が大量に漏れ、個別通知とコールセンター対応に追われる</h3>
           </div>
-          <ul class="zukan-industries"><li class="chip industry-generic">業種を問わず（顧客データを持つ全業種）</li></ul>
+          <ul class="zukan-industries"><li class="chip industry">不動産</li><li class="chip industry-generic">業種を問わず（顧客データを持つ全業種）</li></ul>
           <p class="zukan-summary">氏名・連絡先などが漏れ、対象者への通知や問い合わせ窓口の設置が必要になる。</p>
           <dl class="zukan-facts">
             <div><dt>規模感</dt><dd>数万件〜1,000万件を超える規模になることもある</dd></div>
@@ -233,7 +240,7 @@
             <span class="zukan-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2.6"/><circle cx="18" cy="6" r="2.6"/><circle cx="12" cy="18" r="2.6"/><path d="M8 7.5L10.3 16M16 7.5L13.7 16M8.5 6h7"/></svg></span>
             <h3>取引先・委託先経由で、気づかないうちに自社の情報が漏れる</h3>
           </div>
-          <ul class="zukan-industries"><li class="chip industry">製造業（サプライチェーン）</li><li class="chip industry-generic">業務委託の多い業種全般</li></ul>
+          <ul class="zukan-industries"><li class="chip industry">製造業（サプライチェーン）</li><li class="chip industry">不動産</li><li class="chip industry-generic">業務委託の多い業種全般</li></ul>
           <p class="zukan-summary">自社が直接攻撃を受けていなくても、委託先が被害に遭い、預けていた情報が漏れる。</p>
           <dl class="zukan-facts">
             <div><dt>規模感</dt><dd>1社の被害が、数十〜100以上の取引先・委託元に波及することがある</dd></div>
@@ -392,5 +399,6 @@
 
   <div class="tooltip" id="tooltip" role="tooltip"></div>
   <script src="assets/terms.js"></script>
+  <script src="assets/industry-filter.js"></script>
 </body>
 </html>
