@@ -30,6 +30,8 @@
       <p class="meta">このページは、国内で実際に起きた複数の事例を一般化したものです。企業名を含む具体的な経緯は、<a href="appendix.html">付録の事例集</a>で読めます。各カードの業種タグは、特に影響が大きい・現れ方が特徴的な業種を示したものです。「業種を問わず」は、どの業種でも起こりうる影響です。</p>
     </div>
 
+    <p class="zukan-layers-note">どの影響も、<strong>1つの対策だけでは防げません</strong>。各カードの「防ぐ／気づく／立て直す」を組み合わせて備えます（<strong>太字</strong>は特に関係の深い分野）。</p>
+
     <div class="industry-filter-wrap">
       <p class="industry-filter-label" id="industry-filter-label">業界で絞り込む</p>
       <div class="industry-filter" id="industry-filter" role="group" aria-labelledby="industry-filter-label"></div>
@@ -66,10 +68,14 @@
           <p class="zukan-summary">受注システムや倉庫の管理システムが止まり、通常の物流が回らなくなる。</p>
           <dl class="zukan-facts">
             <div><dt>規模感</dt><dd>数週間〜数か月にわたり、取扱商品の1〜2割が店頭から欠ける規模になることもある</dd></div>
-            <div><dt>きっかけ</dt><dd>境界機器（<a class="term-link" href="glossary.html#t-vpn" data-term="vpn">VPN</a>等）からの侵入、<a class="term-link" href="glossary.html#t-ransomware" data-term="ransomware">ランサムウェア</a>によるシステムの暗号化</dd></div>
             <div><dt>経営としての意味</dt><dd>売上の落ち込みだけでなく、復旧までの人件費・手作業対応コストが積み上がる</dd></div>
           </dl>
-          <a class="zukan-action" href="zukan.html#cat-1">対応する対策を見る（ネットワーク・境界）<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <details class="zukan-more"><summary>どうして起きる？</summary><p>境界機器（<a class="term-link" href="glossary.html#t-vpn" data-term="vpn">VPN</a>等）からの侵入、<a class="term-link" href="glossary.html#t-ransomware" data-term="ransomware">ランサムウェア</a>によるシステムの暗号化</p></details>
+          <div class="zukan-layers" role="group" aria-label="備えの3つの層">
+            <div><span class="layer-name">防ぐ</span><span class="layer-links"><a href="zukan.html#cat-1" class="main"><span class="dot" style="background:var(--cat-1)"></span>ネットワーク・境界</a><a href="zukan.html#cat-2"><span class="dot" style="background:var(--cat-2)"></span>認証・ID</a></span></div>
+            <div><span class="layer-name">気づく</span><span class="layer-links"><a href="zukan.html#cat-4"><span class="dot" style="background:var(--cat-4)"></span>監視・検知</a></span></div>
+            <div><span class="layer-name">立て直す</span><span class="layer-links"><a href="zukan.html#cat-5"><span class="dot" style="background:var(--cat-5)"></span>データ保護</a><a href="zukan.html#cat-7"><span class="dot" style="background:var(--cat-7)"></span>組織・運用</a></span></div>
+          </div>
         </article>
 
         <article class="zukan-card">
@@ -81,10 +87,14 @@
           <p class="zukan-summary">電話・Web受付、予約システムなど、顧客と直接つながる機能が使えなくなる。</p>
           <dl class="zukan-facts">
             <div><dt>規模感</dt><dd>数日〜半年以上、一部の機能が止まったままになることもある</dd></div>
-            <div><dt>きっかけ</dt><dd>リモートアクセス機器の脆弱性、社内システムのマルウェア感染</dd></div>
             <div><dt>経営としての意味</dt><dd>その場でサービスを受けられない顧客が離れ、ブランドの印象が傷つく</dd></div>
           </dl>
-          <a class="zukan-action" href="zukan.html#cat-3">対応する対策を見る（エンドポイント）<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <details class="zukan-more"><summary>どうして起きる？</summary><p>リモートアクセス機器の脆弱性、社内システムのマルウェア感染</p></details>
+          <div class="zukan-layers" role="group" aria-label="備えの3つの層">
+            <div><span class="layer-name">防ぐ</span><span class="layer-links"><a href="zukan.html#cat-3" class="main"><span class="dot" style="background:var(--cat-3)"></span>エンドポイント</a><a href="zukan.html#cat-1"><span class="dot" style="background:var(--cat-1)"></span>ネットワーク・境界</a></span></div>
+            <div><span class="layer-name">気づく</span><span class="layer-links"><a href="zukan.html#cat-4"><span class="dot" style="background:var(--cat-4)"></span>監視・検知</a></span></div>
+            <div><span class="layer-name">立て直す</span><span class="layer-links"><a href="zukan.html#cat-7"><span class="dot" style="background:var(--cat-7)"></span>組織・運用</a><a href="zukan.html#cat-5"><span class="dot" style="background:var(--cat-5)"></span>データ保護</a></span></div>
+          </div>
         </article>
 
         <article class="zukan-card">
@@ -96,10 +106,14 @@
           <p class="zukan-summary">経理データにアクセスできず、決算の数値を確定できなくなる。</p>
           <dl class="zukan-facts">
             <div><dt>規模感</dt><dd>数週間〜5か月程度、決算発表が遅れた例がある</dd></div>
-            <div><dt>きっかけ</dt><dd>基幹システムの停止、経理システムへの被害の波及</dd></div>
             <div><dt>経営としての意味</dt><dd>株主・投資家への説明責任が問われ、信用に直結する</dd></div>
           </dl>
-          <a class="zukan-action" href="zukan.html#cat-7">対応する対策を見る（組織・運用）<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <details class="zukan-more"><summary>どうして起きる？</summary><p>基幹システムの停止、経理システムへの被害の波及</p></details>
+          <div class="zukan-layers" role="group" aria-label="備えの3つの層">
+            <div><span class="layer-name">防ぐ</span><span class="layer-links"><a href="zukan.html#cat-1"><span class="dot" style="background:var(--cat-1)"></span>ネットワーク・境界</a></span></div>
+            <div><span class="layer-name">気づく</span><span class="layer-links"><a href="zukan.html#cat-4"><span class="dot" style="background:var(--cat-4)"></span>監視・検知</a></span></div>
+            <div><span class="layer-name">立て直す</span><span class="layer-links"><a href="zukan.html#cat-7" class="main"><span class="dot" style="background:var(--cat-7)"></span>組織・運用</a></span></div>
+          </div>
         </article>
 
         <article class="zukan-card">
@@ -111,10 +125,14 @@
           <p class="zukan-summary">受注・基幹システムと工場の生産ラインが連動しているため、片方の停止がもう片方にも波及する。</p>
           <dl class="zukan-facts">
             <div><dt>規模感</dt><dd>全工場が数日〜1週間程度停止し、通常の生産水準に戻るまで数か月かかることもある</dd></div>
-            <div><dt>きっかけ</dt><dd>基幹システムの暗号化、工場ネットワークとオフィスネットワークの分離不足</dd></div>
             <div><dt>経営としての意味</dt><dd>自社の出荷だけでなく、納入先・系列企業の生産計画にまで影響が及ぶ</dd></div>
           </dl>
-          <a class="zukan-action" href="zukan.html#cat-1">対応する対策を見る（ネットワーク・境界）<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <details class="zukan-more"><summary>どうして起きる？</summary><p>基幹システムの暗号化、工場ネットワークとオフィスネットワークの分離不足</p></details>
+          <div class="zukan-layers" role="group" aria-label="備えの3つの層">
+            <div><span class="layer-name">防ぐ</span><span class="layer-links"><a href="zukan.html#cat-1" class="main"><span class="dot" style="background:var(--cat-1)"></span>ネットワーク・境界</a></span></div>
+            <div><span class="layer-name">気づく</span><span class="layer-links"><a href="zukan.html#cat-3"><span class="dot" style="background:var(--cat-3)"></span>エンドポイント</a></span></div>
+            <div><span class="layer-name">立て直す</span><span class="layer-links"><a href="zukan.html#cat-5"><span class="dot" style="background:var(--cat-5)"></span>データ保護</a><a href="zukan.html#cat-7"><span class="dot" style="background:var(--cat-7)"></span>組織・運用</a></span></div>
+          </div>
         </article>
 
         <article class="zukan-card">
@@ -126,10 +144,14 @@
           <p class="zukan-summary">院内システムが使えなくなり、カルテの確認や検査結果の参照など、診療そのものに支障が出る。</p>
           <dl class="zukan-facts">
             <div><dt>規模感</dt><dd>紙カルテなど手作業での代替対応が、復旧まで数週間続くこともある</dd></div>
-            <div><dt>きっかけ</dt><dd>院内ネットワーク・リモートアクセス機器への侵入、ランサムウェア感染</dd></div>
             <div><dt>経営としての意味</dt><dd>患者の安全確保が最優先となり、通常の経営判断とは異なる緊急対応が求められる</dd></div>
           </dl>
-          <a class="zukan-action" href="zukan.html#cat-1">対応する対策を見る（ネットワーク・境界）<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <details class="zukan-more"><summary>どうして起きる？</summary><p>院内ネットワーク・リモートアクセス機器への侵入、ランサムウェア感染</p></details>
+          <div class="zukan-layers" role="group" aria-label="備えの3つの層">
+            <div><span class="layer-name">防ぐ</span><span class="layer-links"><a href="zukan.html#cat-1" class="main"><span class="dot" style="background:var(--cat-1)"></span>ネットワーク・境界</a><a href="zukan.html#cat-3"><span class="dot" style="background:var(--cat-3)"></span>エンドポイント</a></span></div>
+            <div><span class="layer-name">気づく</span><span class="layer-links"><a href="zukan.html#cat-4"><span class="dot" style="background:var(--cat-4)"></span>監視・検知</a></span></div>
+            <div><span class="layer-name">立て直す</span><span class="layer-links"><a href="zukan.html#cat-5"><span class="dot" style="background:var(--cat-5)"></span>データ保護</a><a href="zukan.html#cat-7"><span class="dot" style="background:var(--cat-7)"></span>組織・運用</a></span></div>
+          </div>
         </article>
 
         <article class="zukan-card">
@@ -141,10 +163,14 @@
           <p class="zukan-summary">電力・交通・物流などを支えるシステムが止まり、代替手段がないまま利用者の生活に影響が及ぶ。</p>
           <dl class="zukan-facts">
             <div><dt>規模感</dt><dd>一地域・一拠点の停止でも、利用者・取引先全体に即座に影響が広がる</dd></div>
-            <div><dt>きっかけ</dt><dd>現場の制御システムや共通の運行・物流管理システムへの侵害</dd></div>
             <div><dt>経営としての意味</dt><dd>一企業の問題にとどまらず、社会的な説明責任や行政からの要請が強まる</dd></div>
           </dl>
-          <a class="zukan-action" href="zukan.html#cat-7">対応する対策を見る（組織・運用）<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <details class="zukan-more"><summary>どうして起きる？</summary><p>現場の制御システムや共通の運行・物流管理システムへの侵害</p></details>
+          <div class="zukan-layers" role="group" aria-label="備えの3つの層">
+            <div><span class="layer-name">防ぐ</span><span class="layer-links"><a href="zukan.html#cat-1"><span class="dot" style="background:var(--cat-1)"></span>ネットワーク・境界</a><a href="zukan.html#cat-2"><span class="dot" style="background:var(--cat-2)"></span>認証・ID</a></span></div>
+            <div><span class="layer-name">気づく</span><span class="layer-links"><a href="zukan.html#cat-4"><span class="dot" style="background:var(--cat-4)"></span>監視・検知</a></span></div>
+            <div><span class="layer-name">立て直す</span><span class="layer-links"><a href="zukan.html#cat-7" class="main"><span class="dot" style="background:var(--cat-7)"></span>組織・運用</a></span></div>
+          </div>
         </article>
 
       </div>
@@ -170,10 +196,14 @@
           <p class="zukan-summary">システム復旧、原因調査、コールセンター設置、機会損失などの費用が積み重なる。</p>
           <dl class="zukan-facts">
             <div><dt>規模感</dt><dd>数十億円〜数百億円規模の特別損失・減益になった例がある</dd></div>
-            <div><dt>きっかけ</dt><dd>被害範囲の大きさ、復旧の長期化</dd></div>
             <div><dt>経営としての意味</dt><dd>一度のインシデントが、年間の利益計画を狂わせるほどの財務インパクトになりうる</dd></div>
           </dl>
-          <a class="zukan-action" href="zukan.html#cat-5">対応する対策を見る（データ保護）<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <details class="zukan-more"><summary>どうして起きる？</summary><p>被害範囲の大きさ、復旧の長期化</p></details>
+          <div class="zukan-layers" role="group" aria-label="備えの3つの層">
+            <div><span class="layer-name">防ぐ</span><span class="layer-links"><a href="zukan.html#cat-1"><span class="dot" style="background:var(--cat-1)"></span>ネットワーク・境界</a><a href="zukan.html#cat-2"><span class="dot" style="background:var(--cat-2)"></span>認証・ID</a></span></div>
+            <div><span class="layer-name">気づく</span><span class="layer-links"><a href="zukan.html#cat-4"><span class="dot" style="background:var(--cat-4)"></span>監視・検知</a></span></div>
+            <div><span class="layer-name">立て直す</span><span class="layer-links"><a href="zukan.html#cat-5" class="main"><span class="dot" style="background:var(--cat-5)"></span>データ保護</a><a href="zukan.html#cat-7"><span class="dot" style="background:var(--cat-7)"></span>組織・運用</a></span></div>
+          </div>
         </article>
 
         <article class="zukan-card">
@@ -185,10 +215,14 @@
           <p class="zukan-summary">攻撃者からデータの復号や非公開と引き換えに金銭を要求される。</p>
           <dl class="zukan-facts">
             <div><dt>規模感</dt><dd>支払いの有無にかかわらず、復旧や調査には相応の時間と費用がかかる</dd></div>
-            <div><dt>きっかけ</dt><dd>ランサムウェアによる暗号化・データ窃取</dd></div>
             <div><dt>経営としての意味</dt><dd>支払わない方針を平時に決めておかないと、有事に経営判断が混乱する</dd></div>
           </dl>
-          <a class="zukan-action" href="zukan.html#cat-5">対応する対策を見る（データ保護）<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <details class="zukan-more"><summary>どうして起きる？</summary><p>ランサムウェアによる暗号化・データ窃取</p></details>
+          <div class="zukan-layers" role="group" aria-label="備えの3つの層">
+            <div><span class="layer-name">防ぐ</span><span class="layer-links"><a href="zukan.html#cat-3"><span class="dot" style="background:var(--cat-3)"></span>エンドポイント</a><a href="zukan.html#cat-1"><span class="dot" style="background:var(--cat-1)"></span>ネットワーク・境界</a></span></div>
+            <div><span class="layer-name">気づく</span><span class="layer-links"><a href="zukan.html#cat-4"><span class="dot" style="background:var(--cat-4)"></span>監視・検知</a></span></div>
+            <div><span class="layer-name">立て直す</span><span class="layer-links"><a href="zukan.html#cat-5" class="main"><span class="dot" style="background:var(--cat-5)"></span>データ保護</a></span></div>
+          </div>
         </article>
 
         <article class="zukan-card">
@@ -200,10 +234,14 @@
           <p class="zukan-summary">漏えい公表後に株価が下がり、株主総会などで説明が求められる。</p>
           <dl class="zukan-facts">
             <div><dt>規模感</dt><dd>公表直後に数%程度の急落が起きる例がある（一時的な下落にとどまることも）</dd></div>
-            <div><dt>きっかけ</dt><dd>大規模な個人情報漏えいの公表</dd></div>
             <div><dt>経営としての意味</dt><dd>経営者自身の説明責任・信任に直結する</dd></div>
           </dl>
-          <a class="zukan-action" href="zukan.html#cat-7">対応する対策を見る（組織・運用）<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <details class="zukan-more"><summary>どうして起きる？</summary><p>大規模な個人情報漏えいの公表</p></details>
+          <div class="zukan-layers" role="group" aria-label="備えの3つの層">
+            <div><span class="layer-name">防ぐ</span><span class="layer-links"><a href="zukan.html#cat-1"><span class="dot" style="background:var(--cat-1)"></span>ネットワーク・境界</a><a href="zukan.html#cat-2"><span class="dot" style="background:var(--cat-2)"></span>認証・ID</a></span></div>
+            <div><span class="layer-name">気づく</span><span class="layer-links"><a href="zukan.html#cat-4"><span class="dot" style="background:var(--cat-4)"></span>監視・検知</a></span></div>
+            <div><span class="layer-name">立て直す</span><span class="layer-links"><a href="zukan.html#cat-7" class="main"><span class="dot" style="background:var(--cat-7)"></span>組織・運用</a></span></div>
+          </div>
         </article>
 
       </div>
@@ -229,10 +267,14 @@
           <p class="zukan-summary">氏名・連絡先などが漏れ、対象者への通知や問い合わせ窓口の設置が必要になる。</p>
           <dl class="zukan-facts">
             <div><dt>規模感</dt><dd>数万件〜1,000万件を超える規模になることもある</dd></div>
-            <div><dt>きっかけ</dt><dd>認証・アクセス制御の不備、委託先経由の侵害</dd></div>
             <div><dt>経営としての意味</dt><dd>対応が長期化し、広報・コールセンター・法務が同時に動員される</dd></div>
           </dl>
-          <a class="zukan-action" href="zukan.html#cat-2">対応する対策を見る（認証・ID）<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <details class="zukan-more"><summary>どうして起きる？</summary><p>認証・アクセス制御の不備、委託先経由の侵害</p></details>
+          <div class="zukan-layers" role="group" aria-label="備えの3つの層">
+            <div><span class="layer-name">防ぐ</span><span class="layer-links"><a href="zukan.html#cat-2" class="main"><span class="dot" style="background:var(--cat-2)"></span>認証・ID</a><a href="zukan.html#cat-6"><span class="dot" style="background:var(--cat-6)"></span>アプリケーション</a></span></div>
+            <div><span class="layer-name">気づく</span><span class="layer-links"><a href="zukan.html#cat-4"><span class="dot" style="background:var(--cat-4)"></span>監視・検知</a></span></div>
+            <div><span class="layer-name">立て直す</span><span class="layer-links"><a href="zukan.html#cat-7"><span class="dot" style="background:var(--cat-7)"></span>組織・運用</a></span></div>
+          </div>
         </article>
 
         <article class="zukan-card">
@@ -244,10 +286,14 @@
           <p class="zukan-summary">自社が直接攻撃を受けていなくても、委託先が被害に遭い、預けていた情報が漏れる。</p>
           <dl class="zukan-facts">
             <div><dt>規模感</dt><dd>1社の被害が、数十〜100以上の取引先・委託元に波及することがある</dd></div>
-            <div><dt>きっかけ</dt><dd>委託先側のセキュリティ管理不足</dd></div>
             <div><dt>経営としての意味</dt><dd>「委託しているから自社は安全」とは言えない、サプライチェーン全体の責任</dd></div>
           </dl>
-          <a class="zukan-action" href="zukan.html#cat-5">対応する対策を見る（データ保護）<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <details class="zukan-more"><summary>どうして起きる？</summary><p>委託先側のセキュリティ管理不足</p></details>
+          <div class="zukan-layers" role="group" aria-label="備えの3つの層">
+            <div><span class="layer-name">防ぐ</span><span class="layer-links"><a href="zukan.html#cat-5" class="main"><span class="dot" style="background:var(--cat-5)"></span>データ保護</a><a href="zukan.html#cat-7"><span class="dot" style="background:var(--cat-7)"></span>組織・運用</a></span></div>
+            <div><span class="layer-name">気づく</span><span class="layer-links"><a href="zukan.html#cat-4"><span class="dot" style="background:var(--cat-4)"></span>監視・検知</a></span></div>
+            <div><span class="layer-name">立て直す</span><span class="layer-links"><a href="zukan.html#cat-7"><span class="dot" style="background:var(--cat-7)"></span>組織・運用</a></span></div>
+          </div>
         </article>
 
         <article class="zukan-card">
@@ -259,10 +305,14 @@
           <p class="zukan-summary">攻撃者が情報を公開サイトに掲載し、悪用への不安が続く。</p>
           <dl class="zukan-facts">
             <div><dt>規模感</dt><dd>公開から発覚まで時間差があり、後から追加の被害が判明することもある</dd></div>
-            <div><dt>きっかけ</dt><dd><a class="term-link" href="glossary.html#t-double-extortion" data-term="double-extortion">二重恐喝</a>型のランサムウェア（暗号化に加えて情報を公開する手口）</dd></div>
             <div><dt>経営としての意味</dt><dd>一度の公表で終わらず、追加の通知・対応が繰り返し必要になる</dd></div>
           </dl>
-          <a class="zukan-action" href="zukan.html#cat-4">対応する対策を見る（監視・検知）<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <details class="zukan-more"><summary>どうして起きる？</summary><p><a class="term-link" href="glossary.html#t-double-extortion" data-term="double-extortion">二重恐喝</a>型のランサムウェア（暗号化に加えて情報を公開する手口）</p></details>
+          <div class="zukan-layers" role="group" aria-label="備えの3つの層">
+            <div><span class="layer-name">防ぐ</span><span class="layer-links"><a href="zukan.html#cat-5"><span class="dot" style="background:var(--cat-5)"></span>データ保護</a></span></div>
+            <div><span class="layer-name">気づく</span><span class="layer-links"><a href="zukan.html#cat-4" class="main"><span class="dot" style="background:var(--cat-4)"></span>監視・検知</a></span></div>
+            <div><span class="layer-name">立て直す</span><span class="layer-links"><a href="zukan.html#cat-7"><span class="dot" style="background:var(--cat-7)"></span>組織・運用</a></span></div>
+          </div>
         </article>
 
         <article class="zukan-card">
@@ -274,10 +324,14 @@
           <p class="zukan-summary">銀行口座情報や保険の契約内容など、金銭に直結する情報が漏れる。一般的な個人情報よりも悪用時の実害が大きい。</p>
           <dl class="zukan-facts">
             <div><dt>規模感</dt><dd>数百万〜数千万件規模になることがある</dd></div>
-            <div><dt>きっかけ</dt><dd>顧客向けWebシステムへの不正アクセス、照会時のアクセス権チェックの不備</dd></div>
             <div><dt>経営としての意味</dt><dd>所管官庁（金融庁等）から、一般の個人情報保護法以上に重い報告・監督対応を求められる</dd></div>
           </dl>
-          <a class="zukan-action" href="zukan.html#cat-2">対応する対策を見る（認証・ID）<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <details class="zukan-more"><summary>どうして起きる？</summary><p>顧客向けWebシステムへの不正アクセス、照会時のアクセス権チェックの不備</p></details>
+          <div class="zukan-layers" role="group" aria-label="備えの3つの層">
+            <div><span class="layer-name">防ぐ</span><span class="layer-links"><a href="zukan.html#cat-2" class="main"><span class="dot" style="background:var(--cat-2)"></span>認証・ID</a><a href="zukan.html#cat-6"><span class="dot" style="background:var(--cat-6)"></span>アプリケーション</a></span></div>
+            <div><span class="layer-name">気づく</span><span class="layer-links"><a href="zukan.html#cat-4"><span class="dot" style="background:var(--cat-4)"></span>監視・検知</a></span></div>
+            <div><span class="layer-name">立て直す</span><span class="layer-links"><a href="zukan.html#cat-7"><span class="dot" style="background:var(--cat-7)"></span>組織・運用</a></span></div>
+          </div>
         </article>
 
       </div>
@@ -303,10 +357,14 @@
           <p class="zukan-summary">監督官庁から、原因究明や再発防止策の報告を求められる。</p>
           <dl class="zukan-facts">
             <div><dt>規模感</dt><dd>報告義務が数か月〜1年以上続くこともある</dd></div>
-            <div><dt>きっかけ</dt><dd>個人情報保護法、業法（金融・通信等）に基づく監督</dd></div>
             <div><dt>経営としての意味</dt><dd>業種によっては、一般的な個人情報保護以上に重い監督対応が発生する</dd></div>
           </dl>
-          <a class="zukan-action" href="zukan.html#cat-7">対応する対策を見る（組織・運用）<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <details class="zukan-more"><summary>どうして起きる？</summary><p>個人情報保護法、業法（金融・通信等）に基づく監督</p></details>
+          <div class="zukan-layers" role="group" aria-label="備えの3つの層">
+            <div><span class="layer-name">防ぐ</span><span class="layer-links"><a href="zukan.html#cat-7" class="main"><span class="dot" style="background:var(--cat-7)"></span>組織・運用</a><a href="zukan.html#cat-2"><span class="dot" style="background:var(--cat-2)"></span>認証・ID</a></span></div>
+            <div><span class="layer-name">気づく</span><span class="layer-links"><a href="zukan.html#cat-4"><span class="dot" style="background:var(--cat-4)"></span>監視・検知</a></span></div>
+            <div><span class="layer-name">立て直す</span><span class="layer-links"><a href="zukan.html#cat-7" class="main"><span class="dot" style="background:var(--cat-7)"></span>組織・運用</a></span></div>
+          </div>
         </article>
 
         <article class="zukan-card">
@@ -318,10 +376,14 @@
           <p class="zukan-summary">経営陣が自ら報酬を返納するなど、責任の所在を明確にする対応が求められる。</p>
           <dl class="zukan-facts">
             <div><dt>規模感</dt><dd>月額報酬の一定割合を、一定期間返納する例がある</dd></div>
-            <div><dt>きっかけ</dt><dd>大規模な情報漏えい、対応の遅れ</dd></div>
             <div><dt>経営としての意味</dt><dd>セキュリティは「現場の問題」ではなく、経営の説明責任そのもの</dd></div>
           </dl>
-          <a class="zukan-action" href="zukan.html#cat-7">対応する対策を見る（組織・運用）<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <details class="zukan-more"><summary>どうして起きる？</summary><p>大規模な情報漏えい、対応の遅れ</p></details>
+          <div class="zukan-layers" role="group" aria-label="備えの3つの層">
+            <div><span class="layer-name">防ぐ</span><span class="layer-links"><a href="zukan.html#cat-7" class="main"><span class="dot" style="background:var(--cat-7)"></span>組織・運用</a></span></div>
+            <div><span class="layer-name">気づく</span><span class="layer-links"><a href="zukan.html#cat-4"><span class="dot" style="background:var(--cat-4)"></span>監視・検知</a><a href="zukan.html#cat-7" class="main"><span class="dot" style="background:var(--cat-7)"></span>組織・運用</a></span></div>
+            <div><span class="layer-name">立て直す</span><span class="layer-links"><a href="zukan.html#cat-7" class="main"><span class="dot" style="background:var(--cat-7)"></span>組織・運用</a></span></div>
+          </div>
         </article>
 
       </div>
@@ -347,10 +409,14 @@
           <p class="zukan-summary">侵入されてから発覚するまで長い時間がかかり、その間に被害が広がる。</p>
           <dl class="zukan-facts">
             <div><dt>規模感</dt><dd>数か月から、長いものでは数年気づかれなかった例もある</dd></div>
-            <div><dt>きっかけ</dt><dd>監視体制の空白、ログの保管期間不足</dd></div>
             <div><dt>経営としての意味</dt><dd>「気づく仕組み」への投資を怠ると、被害の全容すら把握できなくなる</dd></div>
           </dl>
-          <a class="zukan-action" href="zukan.html#cat-4">対応する対策を見る（監視・検知）<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <details class="zukan-more"><summary>どうして起きる？</summary><p>監視体制の空白、ログの保管期間不足</p></details>
+          <div class="zukan-layers" role="group" aria-label="備えの3つの層">
+            <div><span class="layer-name">防ぐ</span><span class="layer-links"><a href="zukan.html#cat-2"><span class="dot" style="background:var(--cat-2)"></span>認証・ID</a><a href="zukan.html#cat-3"><span class="dot" style="background:var(--cat-3)"></span>エンドポイント</a></span></div>
+            <div><span class="layer-name">気づく</span><span class="layer-links"><a href="zukan.html#cat-4" class="main"><span class="dot" style="background:var(--cat-4)"></span>監視・検知</a></span></div>
+            <div><span class="layer-name">立て直す</span><span class="layer-links"><a href="zukan.html#cat-7"><span class="dot" style="background:var(--cat-7)"></span>組織・運用</a></span></div>
+          </div>
         </article>
 
         <article class="zukan-card">
@@ -362,10 +428,14 @@
           <p class="zukan-summary">攻撃者がSNSやダークウェブで被害規模を主張し、それが報道で取り上げられる。</p>
           <dl class="zukan-facts">
             <div><dt>規模感</dt><dd>会社側の確認より先に、攻撃者の主張が独り歩きすることがある</dd></div>
-            <div><dt>きっかけ</dt><dd>二重恐喝型の攻撃、初動対応・広報対応の遅れ</dd></div>
             <div><dt>経営としての意味</dt><dd>「事実確認中」という説明だけでは、情報発信のスピードで後手に回る</dd></div>
           </dl>
-          <a class="zukan-action" href="zukan.html#cat-7">対応する対策を見る（組織・運用）<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <details class="zukan-more"><summary>どうして起きる？</summary><p>二重恐喝型の攻撃、初動対応・広報対応の遅れ</p></details>
+          <div class="zukan-layers" role="group" aria-label="備えの3つの層">
+            <div><span class="layer-name">防ぐ</span><span class="layer-links"><a href="zukan.html#cat-5"><span class="dot" style="background:var(--cat-5)"></span>データ保護</a></span></div>
+            <div><span class="layer-name">気づく</span><span class="layer-links"><a href="zukan.html#cat-4"><span class="dot" style="background:var(--cat-4)"></span>監視・検知</a></span></div>
+            <div><span class="layer-name">立て直す</span><span class="layer-links"><a href="zukan.html#cat-7" class="main"><span class="dot" style="background:var(--cat-7)"></span>組織・運用</a></span></div>
+          </div>
         </article>
 
       </div>

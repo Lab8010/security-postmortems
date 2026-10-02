@@ -378,15 +378,6 @@ a.event-card:hover { border-color: var(--accent); transform: translateY(-1px); }
 .zukan-related a:hover { text-decoration: underline; }
 
 /* 影響ずかん → 対策ずかんへの導線（行動喚起リンク） */
-.zukan-action {
-  display: inline-flex; align-items: center; gap: 6px;
-  margin-top: 2px; padding: 7px 13px;
-  font-size: 13px; font-weight: 600; text-decoration: none;
-  color: #fff; background: var(--card-accent, var(--accent));
-  border-radius: 8px; align-self: flex-start;
-}
-.zukan-action:hover { filter: brightness(1.08); }
-.zukan-action svg { width: 14px; height: 14px; }
 .zukan-scope { margin: 0; font-size: 12.5px; color: var(--muted); }
 .zukan-scope strong { color: var(--ink-2); font-weight: 600; }
 
@@ -455,3 +446,20 @@ a.event-card:hover { border-color: var(--accent); transform: translateY(-1px); }
   border-radius: 999px; padding: 2px 12px; line-height: 1.6;
 }
 .theme-toggle:hover { color: var(--ink); border-color: var(--accent); }
+
+/* ===== 影響ずかん：備えの3層／折りたたみ ===== */
+.zukan-layers-note { margin: 16px 0 0; font-size: 13.5px; color: var(--ink-2); }
+.zukan-layers {
+  margin-top: auto; padding-top: 10px; border-top: 1px solid var(--grid);
+  display: grid; gap: 4px; font-size: 12.5px;
+}
+.zukan-layers > div { display: flex; gap: 8px; align-items: baseline; }
+.zukan-layers .layer-name { flex: none; width: 4.2em; color: var(--muted); font-weight: 600; }
+.zukan-layers .layer-links { display: flex; flex-wrap: wrap; gap: 2px 12px; }
+.zukan-layers a { color: var(--ink-2); text-decoration: none; display: inline-flex; align-items: center; gap: 5px; }
+.zukan-layers a:hover { color: var(--ink); text-decoration: underline; }
+.zukan-layers a.main { color: var(--ink); font-weight: 700; }
+.zukan-layers .dot { width: 8px; height: 8px; border-radius: 50%; flex: none; }
+.zukan-more { font-size: 13px; color: var(--ink-2); }
+.zukan-more summary { cursor: pointer; color: var(--muted); width: fit-content; }
+.zukan-more p { margin: 4px 0 0; }
